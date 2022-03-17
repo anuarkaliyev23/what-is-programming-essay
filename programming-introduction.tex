@@ -1,5 +1,9 @@
 \documentclass{article}
 
+\usepackage{amsmath}
+\usepackage{longtable}
+\usepackage{float}
+\usepackage[utf8]{inputenc}
 %Hyperref must be the last dependency
 \usepackage{hyperref}
 \hypersetup{colorlinks,%
@@ -40,7 +44,7 @@
         \emph{Everything that allows you to interact\footnote{Interaction with a computer here and on will not take physical interaction with a bare metal in account} 
         with computer (and not just bare metal) is a program.}
         
-        So, essentially, \emph{what is a program?}. According to Marriam-Webster\footnote{Here and on Marriam-Webster dictionary is referred to as a `general-scope' dictionary to avoid technical details redundant for this essay} 
+        So, essentially, \emph{what is a program?}. According to Merriam-Webster\footnote{Here and on Merriam-Webster dictionary is referred to as a `general-scope' dictionary to avoid technical details redundant for this essay} 
         definition\footnote{\href{https://www.merriam-webster.com/dictionary/program}{https://www.merriam-webster.com/dictionary/program}} 
         (applicable for us), we can use following as a definition:
         
@@ -57,7 +61,7 @@
     \section{What is Computer?}
 
         \subsection{It's all about information}
-            Let's once again refer to Marriam-Webster dictionary for a \emph{computer} definition\footnote{\href{https://www.merriam-webster.com/dictionary/computer}{https://www.merriam-webster.com/dictionary/computer}}:
+            Let's once again refer to Merriam-Webster dictionary for a \emph{computer} definition\footnote{\href{https://www.merriam-webster.com/dictionary/computer}{https://www.merriam-webster.com/dictionary/computer}}:
 
             \begin{quote}
                 computer is a programmable usually electronic device that can store, retrieve, and process data.
@@ -220,13 +224,188 @@
 
             Let's say, I am writing a document in Microsoft Word. The \emph{payload} here being anything, I typed directly in this document. However, once I saved it, not
             only the document itself was saved, but also a bunch of additional \emph{metadata}. It can include date of the document creation, 
-            author\footnote{Usually currently active user on OS level} of the document, last save date, last print date, etc. \emph{The same logic is applicable for virtually
-            any file you've ever created}.
-            \footnote{Sometimes, ability to control metadata becomes crucial to save sensitive and personal information. 
-            Some professions can put you in physical danger, if you're not cautious enough} \par
+            author\footnote{Usually currently active user on OS level} of the document, last save date, last print date, etc.\emph{The same logic is applicable for virtually
+            any file you've ever created}\footnote{Sometimes, ability to control metadata becomes crucial to save sensitive and personal information. 
+            Some professions can put you in physical danger, if you're not cautious enough}.\par
 
             \newpage
         \subsection{You can't manage what you can't measure}
+            Once we have gotten ourselves these neat definitions about data and information, we will not benefit from them until we resolve one fundamental issue:
+            \emph{How do we measure information?} How can we possibly find an adequate solution to count something so abstract in nature. \par 
+
+            Well, first of all this is where this fine distinction between \emph{data} and \emph{information} comes in play. You see, \emph{defining context} to transform
+            our data into information provided us with one \emph{fundamental advantage}. To demonstrate this, let's consider an example: I have a drawer, where a bunch
+            of my T-Shirts is stored. Let's say, there is no order whatsoever and once I open the drawer, any of my shirts can be on top\footnote{I would call
+            that scenario uncanningly realistic}. Let's say that I for a fact know that there is no more than 12 T-Shirts of different colors totally in my drawer.
+            I open a drawer and see a green T-Shirt on top. \emph{How much information did I receive}? \par
+
+            To answer this question, let's investigate how any data is measured, for starters. Well, universally in information theory there is a number of data 
+            measurement nomenclatures. The most ubiquitous and universal one being \emph{bits}. It got it's name from a `binary digit'. The binary part represents a
+            tiny set of values it can be equal to, consisting only of \{0, 1\}.
+
+            \begin{quote}
+                Bit is a unit of information. It can be equal to either `1' or `0'.
+            \end{quote}
+
+            Bits are the most basic and fundamental part of any computer-related information operation. \emph{Everything} on your computer is stored in bits. Yes, 
+            \emph{everything}. Everything you type in your Word documents, PowerPoint presentations, every audio track you've ever played, every site you've ever 
+            visited, every file you've created, \emph{everything}. This simple fact might leave us with a bit of confusion: \emph{How on Earth can we measure apparently
+            everything with such basic unit, only accepting `0' and `1' as a value?}. The answer is -- well, pretty easily. Once we have something, that cannot possibly
+            be presented as value in a set of \{0, 1\}, \emph{we just increase the number of bits to store that additional information}. \par
+
+            Consider 1 bit. Total number of values it can represent is limited to 2, by definition. It's either `1' or `0'. Well, if we increase the total numbers
+            of bits and consider we have 2 bits. Now we have 2 possible `cells', each of which can `hold' 2 possible variants. Those values being: `00', `01', `10', `11'.
+            Now, if something is still bigger than one of four possible variants, we can add bits until it will finally be enough. With a little bit of discrete math
+            we can say for sure, that total possible variants a sequence of bits can hold equals to $2^x$, where 2 is a number of possible options a bit can `hold' (`0', `1'), 
+            and $x$ is the number of bits we are ready to \emph{allocate}.
+            
+            \begin{center}
+                \begin{tabular}{|c|c|c|}
+                    \hline
+                    Number of bits & Maximum options & Options \\
+                    \hline
+                    1 & 2 & \{0, 1\} \\
+                    \hline
+                    2 & 4 & \{00, 01, 10, 11\} \\
+                    \hline
+                    3 & 8 & \{000, 001, 010, 011, 100, 101, 110, 111\} \\
+                    \hline
+                    \ldots & \ldots & \ldots \\
+                    \hline
+                    $x$ & $2^x$ & \{ $x$ times 0, \ldots, $x$ times 1\} \\
+                    \hline
+                \end{tabular}
+                \label{tab:Bits} Maximum options, that can be represented by $x$ number of bits
+            \end{center}
+            To count something in bits is pretty similar as to how we would count something normally, but with one nuance. In a modern world, humans mostly calculating 
+            everything in a $base_{10}$. This simply means, that we have \emph{10 digits} that construct \emph{all of our numbers}
+            \footnote{There are examples of cultures, that used different number as their base. However $base_{10}$ is the ubiquitous one nowadays}. 
+            Those digits being: \{0, 1, 2, 3, 4, 5, 6, 7, 8, 9\}. So, our \emph{digits} can represent one of at-most 10 options. But how can we describe something more
+            than 9? Well\ldots{} just start over and add additional digit! This is the same principle we follow, when we are counting in a $base_2$, working with bits.
+            We can use pretty much any base we want, but along with $base_2$, $base_8$ and $base_{16}$ can be seen used widely\footnote{Writing everything in $base_2$
+            can be slightly inconvenient, when exchanging information with other programmers. Those bases gives us ability to `shorten' binary code. Since bases
+            are $2^3$ and $2^4$ respectively, we can `group' together bits in a group of 3 (in the case of $base_8$) or 4 (in the case of $base_{16}$), making it 
+            easier for a human reading. Computer still operates with them in `raw' $base_2$ format}. So we can pretty much convert number in any base to any other 
+            base, always keeping consistency:
+            \begin{center}
+                \begin{longtable}{|c|c|c|c|}
+                    \hline
+                    $base_{10}$ & $base_2$ & $base_8$ & $base_{16}$ \\
+                    \hline
+                    $0_{10}$ & $0_2$ & $0_8$ & $0_{16}$ \\
+                    \hline
+                    $1_{10}$ & $1_2$ & $1_8$ & $1_{16}$ \\
+                    \hline
+                    $2_{10}$ & $10_2$ & $2_8$ & $2_{16}$ \\
+                    \hline
+                    $3_{10}$ & $11_2$ & $3_8$ & $3_{16}$ \\
+                    \hline
+                    $4_{10}$ & $100_2$ & $4_8$ & $4_{16}$ \\
+                    \hline
+                    $5_{10}$ & $101_2$ & $5_8$ & $5_{16}$ \\
+                    \hline
+                    $6_{10}$ & $110_2$ & $6_8$ & $6_{16}$ \\
+                    \hline
+                    $7_{10}$ & $111_2$ & $7_8$ & $7_{16}$ \\
+                    \hline
+                    $8_{10}$ & $1000_2$ & $10_8$ & $8_{16}$ \\
+                    \hline
+                    $9_{10}$ & $1001_2$ & $11_8$ & $9_{16}$ \\
+                    \hline
+                    $10_{10}$ & $1010_2$ & $12_8$ & $A_{16}$ \\
+                    \hline
+                    $11_{10}$ & $1011_2$ & $13_8$ & $B_{16}$ \\
+                    \hline 
+                    $12_{10}$ & $1100_2$ & $14_8$ & $C_{16}$ \\
+                    \hline
+                    $13_{10}$ & $1101_2$ & $15_8$ & $D_{16}$ \\
+                    \hline
+                    $14_{10}$ & $1110_2$ & $16_8$ & $E_{16}$ \\
+                    \hline
+                    $15_{10}$ & $1111_2$ & $17_8$ & $F_{16}$ \\
+                    \hline
+                    $16_{10}$ & $10000_2$ & $20_8$ & $10_{16}$ \\
+                    \hline 
+                    \ldots & \ldots & \ldots & \ldots \\
+                    \hline
+                \end{longtable}
+                \label{tab:Bases} Examples of different bases representing the same number
+            \end{center}
+
+
+            This concept was wonderfully explained in Charles Petzold's book \emph{Code: The Hidden Language of Computer Hardware and Software}. He explains different
+            number bases with a following concept: we, humans, use $base_{10}$ mostly because it's very conveniently translates to \emph{number of our fingers and toes}.
+            So, a $base_2$ would be only natural, if math was invented by dolphins! Since they have only two flippers from each side it would be super convenient for
+            them to calculate. \par
+    
+            One might wonder: But why choose $base_2$ number system for computers in the first place? Well, the answer is, like many things, a result of overcoming
+            real-world limitations. Any computer utilises some hardware, tangible, physical metal parts. Since computers nowadays are mostly electronic devices 
+            it made sense to create system detecting presence or absence of some electric signal. Presence of said signal would be connoted as `1` and absence as `0'. \par
+
+            Now, since we dwelled enough into subject, it's time to answer to the initial question of the subsection: \emph{How much data did I receive, seeing a green 
+            T-Shirt on the top, once I opened my drawer}. We can even add some precision to this question, asking not \emph{How much data \ldots}, but \emph{How many bits of information \ldots}.
+            Well, the fundamental \emph{advantage} of data being in context, that I claimed in the beginning of the section is that now we know \emph{total number of options}.
+            Since we know, that I only have 12 T-Shirts (and we don't really care about any other clothing in the drawer), there 12 possible options this could've ended. To 
+            conclude the total number of bits this information will occupy, I can use something called \emph{Hartley function} to find out. It can be represented
+            \footnote{This form is somewhat simplified for the sake of clarity. Full Hartley Formula can be denoted as: $H_0(A) := log_b|A|$}
+            as: $2^x \geq N$ with $N$ -- representing our total outcomes number, 2 -- representing possible options for one bit and \emph{$x$ -- number of bits we need to store it}.
+            Mind `\geq' here -- since bit is indivisible measurement, we cannot just take 1.5 bits, for example.
+            \emph{All cases ending up with a non-integer number need to be rounded up}. \par
+
+            Since we know our total number of possible outcomes -- 12, we can calculate total numbers of bits we need to store that information, being the nearest power of 2
+            exceeding possible outcomes number.
+            
+            \begin{quote}
+                $2^4 \geq 12$ $\implies$ we need \emph{4 bits} to store information about \emph{any} T-Shirt being on top.
+            \end{quote}
+
+            Please, mind an important detail: we need 4 bits \emph{regardless} of which exactly T-Shirt will end up on top. To represent which T-Shirt it was exactly
+            in each case of me, opening my drawer (provided, that total number of T-Shirts is constant), we have to come up with a \emph{code}.
+
+            \begin{quote}
+                Code -- a system of signals or symbols for communication\footnote{\href{https://www.merriam-webster.com/dictionary/code}{https://www.merriam-webster.com/dictionary/code}}.
+            \end{quote}
+
+            We must assign to every one of my T-Shirts a special \emph{system of symbols}. Since information is measured in bits, it's only natural for our `symbols' to 
+            be simple bits sequences. Number of bits in these sequences will be equal to 4, since $2^4 \geq 12$\\
+            Let's come up with a system of codes for T-Shirts:
+
+            \begin{center}
+                \begin{longtable}{|c|c|}
+                    \hline
+                    T-Shirt & Code \\
+                    \hline
+                    Red & 0000 \\
+                    \hline
+                    Brown & 0001 \\
+                    \hline
+                    Green & 0010 \\
+                    \hline
+                    Yelllow & 0011 \\
+                    \hline
+                    Pink & 0100 \\
+                    \hline
+                    Gray & 0101 \\
+                    \hline
+                    Purple & 0110 \\
+                    \hline
+                    Blue & 0111 \\
+                    \hline
+                    Black & 1000 \\
+                    \hline
+                    White & 1001 \\
+                    \hline 
+                    Orange & 1010 \\
+                    \hline
+                    Beige & 1011 \\
+                    \hline
+                \end{longtable}
+                \label{tab:T-Shirts} T-Shirts with assigned code represented as bit sequence
+
+            \end{center}
+
+            So, upon opening my drawer and seeing my green T-Shirt on top I received 4 bits of information. If my drawer (or the T-Shirt itself) could send me binary
+            information, they would send me `0010' representing it's color in this particular context.
 
             \newpage
         \subsection{Countess, weaving patterns and count machines}
