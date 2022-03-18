@@ -14,7 +14,6 @@
             pdftex
 }
 
-
 %Title section
 \title{What is programming?}
 \author{Khambar Dussaliyev}
@@ -52,7 +51,7 @@
             program is a sequence of coded instructions that can be inserted into a mechanism (such as a computer)
         \end{quote}
 
-        The gist of it being -- \emph{sequense of instructions}. So every interaction we can possibly have with a computer is somehow just a set of instructions. But \emph{how computers
+        The gist of it being --- \emph{sequense of instructions}. So every interaction we can possibly have with a computer is somehow just a set of instructions. But \emph{how computers
         do understand out instructions}? If I just shout into the microphone some command, computer will not just do as I say\footnote{Provided, there is no running program, responsible for such behavior}.
         The same effect will have some instruction that I carefully write them in some text document, using Microsoft Word, for example.
         \\ 
@@ -69,10 +68,10 @@
 
             So, a computer directly tied to all sorts of \emph{data maniplation}. But what is data, and how can it be manipulated? Data is pretty much any factual information.
             Weather outside a window? Data. T-Shirt you're wearing? Data. Dusty books in my shelves? Data. But there are a certain layers present. The fact that I'm wearing a T-Shirt 
-            is data (even if I'm not -- also data). What color it is is also, most certainly data. Is there any text or image present?
-            Both the existence and \emph{information} in it -- also data. Let's also not forget about colors, sizes, fonts. We are living and have always lived in an enormous ocean of data. Nowadays, with our technology even more so. \par
+            is data (even if I'm not --- also data). What color it is is also, most certainly data. Is there any text or image present?
+            Both the existence and \emph{information} in it --- also data. Let's also not forget about colors, sizes, fonts. We are living and have always lived in an enormous ocean of data. Nowadays, with our technology even more so. \par
             
-            But do we have use for this data? Well, the answer is -- it depends. To assess data without well-defined goal will almost always result in you drowning in said data without much progress,
+            But do we have use for this data? Well, the answer is --- it depends. To assess data without well-defined goal will almost always result in you drowning in said data without much progress,
             since world offers us practically indefinite source of it. We must put our data into some perspective, some context. Once we put our data in some context and it becomes \emph{useful} for us, \emph{it becomes information}.
             
             \begin{quote}
@@ -260,26 +259,19 @@
             and $x$ is the number of bits we are ready to \emph{allocate}.
             
             \begin{center}
-                \begin{tabular}{|c|c|c|}
+                \begin{longtable}{|c|c|c|}
                     \hline
-                    Number of bits & Maximum options & Options \\
-                    \hline
-                    1 & 2 & \{0, 1\} \\
-                    \hline
-                    2 & 4 & \{00, 01, 10, 11\} \\
-                    \hline
-                    3 & 8 & \{000, 001, 010, 011, 100, 101, 110, 111\} \\
-                    \hline
-                    \ldots & \ldots & \ldots \\
-                    \hline
-                    $x$ & $2^x$ & \{ $x$ times 0, \ldots, $x$ times 1\} \\
-                    \hline
-                \end{tabular}
-                \label{tab:Bits} Maximum options, that can be represented by $x$ number of bits
+                    Number of bits & Maximum options & Options \\\hline
+                    1 & 2 & \{0, 1\} \\\hline
+                    2 & 4 & \{00, 01, 10, 11\} \\\hline
+                    3 & 8 & \{000, 001, 010, 011, 100, 101, 110, 111\} \\\hline
+                    \ldots & \ldots & \ldots \\\hline
+                    $x$ & $2^x$ & \{ $x$ times 0, \ldots, $x$ times 1\} \\\hline
+                \end{longtable}
             \end{center}
+
             To count something in bits is pretty similar as to how we would count something normally, but with one nuance. In a modern world, humans mostly calculating 
-            everything in a $base_{10}$. This simply means, that we have \emph{10 digits} that construct \emph{all of our numbers}
-            \footnote{There are examples of cultures, that used different number as their base. However $base_{10}$ is the ubiquitous one nowadays}. 
+            everything in a $base_{10}$. This simply means, that we have \emph{10 digits} that construct \emph{all of our numbers}\footnote{There are examples of cultures, that used different number as their base. However $base_{10}$ is the ubiquitous one nowadays}. 
             Those digits being: \{0, 1, 2, 3, 4, 5, 6, 7, 8, 9\}. So, our \emph{digits} can represent one of at-most 10 options. But how can we describe something more
             than 9? Well\ldots{} just start over and add additional digit! This is the same principle we follow, when we are counting in a $base_2$, working with bits.
             We can use pretty much any base we want, but along with $base_2$, $base_8$ and $base_{16}$ can be seen used widely\footnote{Writing everything in $base_2$
@@ -287,49 +279,30 @@
             are $2^3$ and $2^4$ respectively, we can `group' together bits in a group of 3 (in the case of $base_8$) or 4 (in the case of $base_{16}$), making it 
             easier for a human reading. Computer still operates with them in `raw' $base_2$ format}. So we can pretty much convert number in any base to any other 
             base, always keeping consistency:
+
             \begin{center}
                 \begin{longtable}{|c|c|c|c|}
                     \hline
-                    $base_{10}$ & $base_2$ & $base_8$ & $base_{16}$ \\
-                    \hline
-                    $0_{10}$ & $0_2$ & $0_8$ & $0_{16}$ \\
-                    \hline
-                    $1_{10}$ & $1_2$ & $1_8$ & $1_{16}$ \\
-                    \hline
-                    $2_{10}$ & $10_2$ & $2_8$ & $2_{16}$ \\
-                    \hline
-                    $3_{10}$ & $11_2$ & $3_8$ & $3_{16}$ \\
-                    \hline
-                    $4_{10}$ & $100_2$ & $4_8$ & $4_{16}$ \\
-                    \hline
-                    $5_{10}$ & $101_2$ & $5_8$ & $5_{16}$ \\
-                    \hline
-                    $6_{10}$ & $110_2$ & $6_8$ & $6_{16}$ \\
-                    \hline
-                    $7_{10}$ & $111_2$ & $7_8$ & $7_{16}$ \\
-                    \hline
-                    $8_{10}$ & $1000_2$ & $10_8$ & $8_{16}$ \\
-                    \hline
-                    $9_{10}$ & $1001_2$ & $11_8$ & $9_{16}$ \\
-                    \hline
-                    $10_{10}$ & $1010_2$ & $12_8$ & $A_{16}$ \\
-                    \hline
-                    $11_{10}$ & $1011_2$ & $13_8$ & $B_{16}$ \\
-                    \hline 
-                    $12_{10}$ & $1100_2$ & $14_8$ & $C_{16}$ \\
-                    \hline
-                    $13_{10}$ & $1101_2$ & $15_8$ & $D_{16}$ \\
-                    \hline
-                    $14_{10}$ & $1110_2$ & $16_8$ & $E_{16}$ \\
-                    \hline
-                    $15_{10}$ & $1111_2$ & $17_8$ & $F_{16}$ \\
-                    \hline
-                    $16_{10}$ & $10000_2$ & $20_8$ & $10_{16}$ \\
-                    \hline 
-                    \ldots & \ldots & \ldots & \ldots \\
-                    \hline
+                    $base_{10}$ & $base_2$ & $base_8$ & $base_{16}$ \\\hline
+                    $0_{10}$ & $0_2$ & $0_8$ & $0_{16}$ \\\hline
+                    $1_{10}$ & $1_2$ & $1_8$ & $1_{16}$ \\\hline
+                    $2_{10}$ & $10_2$ & $2_8$ & $2_{16}$ \\\hline
+                    $3_{10}$ & $11_2$ & $3_8$ & $3_{16}$ \\\hline
+                    $4_{10}$ & $100_2$ & $4_8$ & $4_{16}$ \\\hline
+                    $5_{10}$ & $101_2$ & $5_8$ & $5_{16}$ \\\hline
+                    $6_{10}$ & $110_2$ & $6_8$ & $6_{16}$ \\\hline
+                    $7_{10}$ & $111_2$ & $7_8$ & $7_{16}$ \\\hline
+                    $8_{10}$ & $1000_2$ & $10_8$ & $8_{16}$ \\\hline
+                    $9_{10}$ & $1001_2$ & $11_8$ & $9_{16}$ \\\hline
+                    $10_{10}$ & $1010_2$ & $12_8$ & $A_{16}$ \\\hline
+                    $11_{10}$ & $1011_2$ & $13_8$ & $B_{16}$ \\\hline 
+                    $12_{10}$ & $1100_2$ & $14_8$ & $C_{16}$ \\\hline
+                    $13_{10}$ & $1101_2$ & $15_8$ & $D_{16}$ \\\hline
+                    $14_{10}$ & $1110_2$ & $16_8$ & $E_{16}$ \\\hline
+                    $15_{10}$ & $1111_2$ & $17_8$ & $F_{16}$ \\\hline
+                    $16_{10}$ & $10000_2$ & $20_8$ & $10_{16}$ \\\hline 
+                    \ldots & \ldots & \ldots & \ldots \\\hline
                 \end{longtable}
-                \label{tab:Bases} Examples of different bases representing the same number
             \end{center}
 
 
@@ -346,13 +319,14 @@
             T-Shirt on the top, once I opened my drawer}. We can even add some precision to this question, asking not \emph{How much data \ldots}, but \emph{How many bits of information \ldots}.
             Well, the fundamental \emph{advantage} of data being in context, that I claimed in the beginning of the section is that now we know \emph{total number of options}.
             Since we know, that I only have 12 T-Shirts (and we don't really care about any other clothing in the drawer), there 12 possible options this could've ended. To 
-            conclude the total number of bits this information will occupy, I can use something called \emph{Hartley function} to find out. It can be represented
-            \footnote{This form is somewhat simplified for the sake of clarity. Full Hartley Formula can be denoted as: $H_0(A) := log_b|A|$}
-            as: $2^x \geq N$ with $N$ -- representing our total outcomes number, 2 -- representing possible options for one bit and \emph{$x$ -- number of bits we need to store it}.
-            Mind `\geq' here -- since bit is indivisible measurement, we cannot just take 1.5 bits, for example.
+            conclude the total number of bits this information will occupy, I can use something called \emph{Hartley function} to find out. It can be 
+            represented\footnote{This form is somewhat simplified for the sake of clarity. Full Hartley Formula can be denoted as: $H_0(A) := \log_b|A|$}
+            as: $2^x \geq N$ with $N$ --- representing our total outcomes number, 2 --- representing possible options for one bit and 
+            \emph{$x$ --- number of bits we need to store it}.
+            Mind `\geq' here --- since bit is indivisible measurement, we cannot just take 1.5 bits, for example.
             \emph{All cases ending up with a non-integer number need to be rounded up}. \par
 
-            Since we know our total number of possible outcomes -- 12, we can calculate total numbers of bits we need to store that information, being the nearest power of 2
+            Since we know our total number of possible outcomes --- 12, we can calculate total numbers of bits we need to store that information, being the nearest power of 2
             exceeding possible outcomes number.
             
             \begin{quote}
@@ -363,7 +337,7 @@
             in each case of me, opening my drawer (provided, that total number of T-Shirts is constant), we have to come up with a \emph{code}.
 
             \begin{quote}
-                Code -- a system of signals or symbols for communication\footnote{\href{https://www.merriam-webster.com/dictionary/code}{https://www.merriam-webster.com/dictionary/code}}.
+                Code --- a system of signals or symbols for communication\footnote{\href{https://www.merriam-webster.com/dictionary/code}{https://www.merriam-webster.com/dictionary/code}}.
             \end{quote}
 
             We must assign to every one of my T-Shirts a special \emph{system of symbols}. Since information is measured in bits, it's only natural for our `symbols' to 
@@ -373,39 +347,31 @@
             \begin{center}
                 \begin{longtable}{|c|c|}
                     \hline
-                    T-Shirt & Code \\
-                    \hline
-                    Red & 0000 \\
-                    \hline
-                    Brown & 0001 \\
-                    \hline
-                    Green & 0010 \\
-                    \hline
-                    Yelllow & 0011 \\
-                    \hline
-                    Pink & 0100 \\
-                    \hline
-                    Gray & 0101 \\
-                    \hline
-                    Purple & 0110 \\
-                    \hline
-                    Blue & 0111 \\
-                    \hline
-                    Black & 1000 \\
-                    \hline
-                    White & 1001 \\
-                    \hline 
-                    Orange & 1010 \\
-                    \hline
-                    Beige & 1011 \\
-                    \hline
+                    T-Shirt & Code \\\hline
+                    Red & 0000 \\\hline
+                    Brown & 0001 \\\hline
+                    Green & 0010 \\\hline
+                    Yellow & 0011 \\\hline
+                    Pink & 0100 \\\hline
+                    Gray & 0101 \\\hline
+                    Purple & 0110 \\\hline
+                    Blue & 0111 \\\hline
+                    Black & 1000 \\\hline
+                    White & 1001 \\\hline 
+                    Orange & 1010 \\\hline
+                    Beige & 1011 \\\hline
                 \end{longtable}
-                \label{tab:T-Shirts} T-Shirts with assigned code represented as bit sequence
-
             \end{center}
 
             So, upon opening my drawer and seeing my green T-Shirt on top I received 4 bits of information. If my drawer (or the T-Shirt itself) could send me binary
-            information, they would send me `0010' representing it's color in this particular context.
+            information, they would send me `0010' representing it's color in this particular context.\par
+
+            \begin{quote}
+                Thus, we created an \emph{encoding} for our T-Shirts.
+            \end{quote}
+
+            \newpage
+        \subsection{Size matters}
 
             \newpage
         \subsection{Countess, weaving patterns and count machines}
