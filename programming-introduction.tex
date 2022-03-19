@@ -391,7 +391,7 @@
             sorts of things only to solve a very narrow set of problems. Imagine everybody, from all over the world, to create own encodings for something as basic
             as date and time\footnote{Like we haven't enough problems with them already!}, text, all sorts of media, satellite signal processing, network communication and all
             sorts of other things --- it would be a nightmare! Not only it's unreasonably hard and requires an immense quantity of man-years, but all that everybody would 
-            come up with will always be kinda of bad quality. Encodings created to differentiate colors of T-Shirts won't be adequate to differentiate colors of pixels on 
+            come up with will always be kind of bad quality. Encodings created to differentiate colors of T-Shirts won't be adequate to differentiate colors of pixels on 
             the screen. Encodings, created for date and time will suffer lacking of different calendars and timezones, if at all support any. We couldn't pass a video to 
             friend without passing special program developed for this particular video along with it. It will be simply unsustainable. \par
 
@@ -456,12 +456,70 @@
                 Exabyte & EB & $2^{60}$B = 1024 TB \\\hline
                 Zettabyte & ZB & $2^{70}$B = 1024 EB \\\hline
                 Yottabyte & YB & $2^{80}$B = 1024 ZB \\\hline
-
-
             \end{longtable}
 
+            Since we know, that space being occupied on computers directly tied to a total number of variants, we can now embrace some weird things, we can encounter
+            in programming. For instance, consider following examples
 
+            \begin{itemize}
+                \item 9 + 13 = 22
+                \item Cats are believed to have 9 lives
+                \item It just so happens, I have an extra 9.5\$
+                \item 9.8 + 0.2 = 10
+            \end{itemize}
 
+            In each of these cases, we can encounter `9' in some form. If we consider all previous examples to be an ASCII text, we can roughly estimate data it would take up in 
+            a computer. We just need to count all symbols (including whitespaces!) and multiply it by 8. We know the encoding, we know a discrete number of variants we can
+            come up with for a single characters. \emph{But what if it is not a text?}. What if we need `9' \emph{as a number, not text symbol}? There is no finite total count
+            of all the numbers, they are infinite! And even more so, they are infinite both in ascending and descending orders! What should we do? \par
+            
+            Examples like these show this difference, between a human mind and a way of how computers work. See, we are somewhat capable to construct our thesises and thoughts
+            based on some \emph{abstractions}. We made up a bunch of abstractions to make our life easier in some way or another. We can operate on abstractions, we are not required
+            to have a complete and unambigious definitions on everything\footnote{We do tend to unambiguity in many cases, though. Especially in science.}. We can interpret `9' in various
+            different ways not having to comprehend an enormous work of our brain behind it. For better, or worse, \emph{computers work in fundamentally different way}.
+            
+            For computers to compute (pun intended) we must firstly to \emph{make up a finite set of possible variants}. This is usually done by creating several different
+            `types' of numbers\footnote{Programming Language types is a vast and fundamental topic, and not limited just to numbers.}. Most of the times we just allocating 
+            different number of bytes to numbers, inherently making these numbers elements of the finite set. Generic example of this can be seen as:
+            
+            \begin{longtable}{|c|c|c|}
+                \hline
+                Name of the type & Size & Possible values \\\hline
+                Pretty-Small-Number & 1 Byte & $x \in [0..2^8 - 1]$ \\\hline
+                Not-So-Small-Number & 2 Bytes & $x \in [0..2^{16} - 1]$\\\hline
+                Generic-Number & 4 bytes & $x \in [0..2^{32} - 1]$\\\hline
+                Pretty-Big-Number & 8 bytes & $x \in [0..2^{64} - 1]$\\\hline
+                Very-Very-Big-Number & 16 bytes & $x \in [0..2^{128} - 1]$\\\hline
+            \end{longtable}
+
+            But wait --- we cannot create negative numbers in this example! Should we use structure just like this for negative numbers also? We can, but it's not really convenient.
+            However, we can reserve one our bits for the sign! Thus, we will not change total number of variants these bits provide us, but will change encoding for each number, subsequently
+            `shifting' our set of possible values:
+
+            \begin{longtable}{|c|c|c|}
+                \hline
+                Name of the type & Size & Possible values \\\hline
+                Pretty-Small-Number-With-Sign & 1 Byte & $x \in [-2^7..2^7 - 1]$ \\\hline
+                Not-So-Small-Number-With-Sign & 2 Bytes & $x \in [-2^{15}..2^{15} - 1]$\\\hline
+                Generic-Number-With-Sign & 4 bytes & $x \in [-2^{31}..2^{31} - 1]$\\\hline
+                Pretty-Big-Number-With-Sign & 8 bytes & $x \in [-2^{63}..2^{63} - 1]$\\\hline
+                Very-Very-Big-Number-With-Sign & 16 bytes & $x \in [-2^{127}..2^{127} - 1]$\\\hline
+            \end{longtable}
+
+            It's all good and all, but these examples show only \emph{integer} numbers. What if we have some number like 9.23?
+            We cannot store it in any type of the aforementioned tables --- none of them support fractions. \par
+
+            We can make up a type, that works with \emph{fractions}\footnote{There are a number of ways to deal with fractions. 
+            Example, described here is subtype of fixed-point fractional numbers. This particular method of dealing with them was chosen due to being somewhat simple}. 
+            For example, let's create a type taking 2 bytes. In this case we can define, that 1\textsuperscript{st} byte will represent an integer part and a 2\textsuperscript{nd}
+            byte will represent a fractional part. For example:
+
+            \begin{longtable}{|c|c|c|}
+                \hline
+                $base_{10}$ number & integer part & decimal part \\\hline
+                1.0 & 00000001 & 00000000 \\\hline
+                25.0 & 00011001 & 00000000 \\\hline
+            \end{longtable}
 
 
             \newpage
