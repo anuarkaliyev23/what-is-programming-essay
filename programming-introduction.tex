@@ -28,7 +28,12 @@
         for most people, even tech-savvy ones. \par
         
         However, being a \emph{black box of magic} to some extent is a requirement for some commercial software (especially when there are trade secrets involved) 
-        natural. But this essay is not intended to answer how every software works in details, but \emph{how every software works, in general}.
+        natural. But this essay is not intended to answer how every software works in details, but \emph{how every software works, in general}. \par
+
+        \textbf{
+            DISCLAIMER: This is a preliminary DRAFT. If you've found some errors, or somehow interested in this work,
+            please write to \href{mailto:anuarkaliyev23@gmail.com}{anuarkaliyev23@gmail.com}
+            }
     \end{abstract}
     \newpage
 
@@ -93,7 +98,7 @@
             So, being a natural organic computer, we must first understand what we do with information, to have insight on what computers do with information. All processing 
             of information, our minds in work is mostly an internal process. \emph{Sooner or later there is a point, when we must exchange said information}. So, how do we
             exhange it? We have an enormous number of ways, actually. We can say something to another person, write it down, pass via somebody a note, we can just hint at something.
-            We can send message in a messenger, send an email, send a radio-signal, we can knock a Morse code. \emph{We are practically limitless with one major nuance -- the other
+            We can send message in a messenger, send an email, send a radio-signal, we can knock a Morse code. \emph{We are practically limitless with one major nuance --- the other
             side must be able to understand us}. There is no point in sending email to a person, who can't use it\footnote{In general. Sometimes we are interested only
             in sending information, not concerned by an actual delivery. Some legal procedures can be of an example}. \par
 
@@ -117,7 +122,7 @@
             In all aforementioned examples we can clearly see, that the gist of our `message' stayed the same. \emph{We did pass a more or less the same information} in 
             each and every case. Despite the medium being completely different, if our friend can undestand us, nothing really changed for him or us. In such cases
             the `main message' containing an actual useful information we are willing to exchange usually colloquially called a \emph{`payload'}. However,
-            despite our `payload' being virtually the same, we did pass some additional information (or data -- depending on context) along the way, didn't we?
+            despite our `payload' being virtually the same, we did pass some additional information (or data --- depending on context) along the way, didn't we?
 
             Let's use an above list one more time, but will provide additional few details, just for example:
 
@@ -371,7 +376,93 @@
             \end{quote}
 
             \newpage
-        \subsection{Size matters}
+        \subsection{Standartisation, Specification, Simplification}
+            So, we now know, how to use \emph{Hartley function} to speculate about information's size. This is not, by any means, the only one method we can use to 
+            calculate information's size. However, It's pretty simple and kinda feels `natural' to use. \emph{Hartley function} gives us pretty good results when we are talking
+            about somewhat randomly distributed options. Like in a case with a drawer and T-Shirts, I stated, that T-Shirt on top is random in nature. There is no 
+            hidden mechanism or consistent pattern we can observe, that can `hint' us about which T-Shirt will be on top\footnote{Example of such pattern could
+            be scenario in which I always see red T-Shirt on top, if on   the previous opening I've seen on top the yellow one.}. There are more applicable information 
+            measurements for the cases, when options are not evenly distributed. Also, there are numerous ways to `shrink' space allocated for data. Researches focused
+            on data compression algorithms are very important and it's hard to imagine some segment of IT, where this topic wouldn't be fundamental. But nonetheless, 
+            one way or another, understanding even something as simple as Hartley function and bit structures gives us major insight into how computers work and `think'. \par
+
+            But do we really need to calculate how many bits of data will it occupy to do something and create own encodings for everything all the time? Well\ldots{} --- it depends. 
+            It's a rare occasion to create our own encodings, as we did in the T-Shirts example. Imagine a world, where everybody creates his own encoding for all 
+            sorts of things only to solve a very narrow set of problems. Imagine everybody, from all over the world, to create own encodings for something as basic
+            as date and time\footnote{Like we haven't enough problems with them already!}, text, all sorts of media, satellite signal processing, network communication and all
+            sorts of other things --- it would be a nightmare! Not only it's unreasonably hard and requires an immense quantity of man-years, but all that everybody would 
+            come up with will always be kinda of bad quality. Encodings created to differentiate colors of T-Shirts won't be adequate to differentiate colors of pixels on 
+            the screen. Encodings, created for date and time will suffer lacking of different calendars and timezones, if at all support any. We couldn't pass a video to 
+            friend without passing special program developed for this particular video along with it. It will be simply unsustainable. \par
+
+            This caveat, regardless of the activity type, is solved by pretty much the only practical way possible --- standartisation. Standartisation 
+            is \emph{absolutely necessary} when you want something to be scalable at all. For example, in the early 19\textsuperscript{th} there wasn't standartised time 
+            in North America. It was simply not necessary, every little town had it's own clocks, that were adequate for people's needs. However, it would make some 
+            scheduling \emph{between two towns} almost impossible. However, there wasn't much activities that would involve a simultaneous action between two towns. 
+            Travelling between them would take days, so why would people even bother with checking which hour it is in another town? It all have changed, once the trains
+            and railroads came into place. \emph{Now it was actually important}. Transport companies had to organize trains somehow and create predictable schedules for all
+            passengers and cargo to be transported and it \emph{required} some standartised measure of time. Now we can have some video-conference meeting from several points 
+            all across the globe without any issues, since the time itself is standartised. All different calendars have predictable and standartised conversion operations and
+            it's no problem to know what's time is it anywhere on the globe, in any standard calendar you like. We even have time standards for marking extraterrestrial observations. 
+            Our governments almost always impose some regulations on food, medical supplies, electrical devices, architecture and all sorts of any other things we can consume, 
+            produce and sell in our countries.\par
+
+            Most of the products and services in IT segment are way more scalable than fields requiring physical manipulation and processes. You can download a range of
+            commercial and non-commercial products all over the world, provided you have a computer with stable internet connection. Once some method of data compression 
+            was discovered in North America, for example, there is not much stopping for any company in the world to use it\footnote{In this paragraph, we suppose, that 
+            there is no special hardware or legal obligations involved}. Once new technology emerged, almost anywhere, anyone with adequate skills and knowledge can use it.
+            It is the result of scalability, provided by standartisation. Not only that, but this environment creates a positive feedback loop, encouraging us to 
+            improve and evolve our standards, giving us even more scalability.\par
+            
+            It wasn't always like this, though. Not so long ago, computers weren't as widespread as they are today. Back in a day, only some prestigious universities could have
+            \emph{one} giant computer for the whole university to use. By nowadays standards, they couldn't be called even remotely of good performance. IPhone 12 Max Pro, for instance
+            has up to \emph{16 billion times} more disk space, \emph{1.5 million times} more RAM, while being almost \emph{159 times} lighter than 
+            \emph{Appolo 11\footnote{This program succesfully landed on the Moon} Guidance Computer}. \par
+
+            So, back in a day, when computers were ineffecient, programs \emph{had to} be effecient to somehow compensate for hardware limitations. For this reasons, then it 
+            made more sense to `invent a wheel' of sorts due to ineffeciency. It was easier to create some `custom-built' encoding, that works well for some particular type
+            of computer (sometimes even one specific computer), than to effeciently use some universal encoding of sorts. It was simply not feasible to create, for example,
+            a text encoding where virtually all languages would be supported. But nonetheless, there was some standartisation, that eventually became widespread enough to 
+            become a basis for everything else. \par
+
+            Text encodings are one of the most fundamental standards there is in programming world. One of the first \emph{text encodings} that became popular and \emph{still widely
+            used today} is ASCII\footnote{IANA prefers to call it `US-ASCII'}. Originally, it used 7 bits of information per symbol, producing $2^7 = 128$ possible 
+            variants for encoding characters. This provides us with 26 uppercase\footnote{Capital letters} letters, 26 lowercase\footnote{Small letters} letters, 10 digits, some punctuation
+            and additional symbols\footnote{such as `\%', `\&', `+', `-', `!', different types of quotes and parenthesis}, and a bunch of control characters, which not always make sense to human,
+            but are handy for the computers\footnote{For example: whitespaces, backspaces, tabulations, new line sequences, page breaks, etc. They can also represent some communication metadata.}.
+            Since computers are built almost entirely on bits, it encourages engineers make things $2^x$ based, to use provided space more effeciently. So, after some time, ASCII
+            began to require 8 bits\footnote{Since $8 = 2^3$} to encode single character. It was one of the major reason for currently used size nomenclature to 
+            emerge\footnote{\href{https://stackoverflow.com/questions/42842662/why-is-1-byte-equal-to-8-bits}{https://stackoverflow.com/questions/42842662/why-is-1-byte-equal-to-8-bits}}.
+            Sequence of 8 bits started being adressed as a \emph{byte}. There were some computers, that weren't following `8 bit = 1 byte' structure, but 8-bit based
+            computers became more popular, eventually. Although there were some historical `debate' as how many bits a byte should consist of, nowadays 
+            
+            \begin{quote}
+                \begin{center}
+                    1 Byte = 8 bits                                    
+                \end{center}
+            \end{quote}
+
+            Eventually a nomenclature was formed: 
+
+            \begin{longtable}{|c|c|c|}
+                \hline
+                Name & Denotion & Size \\\hline
+                Byte & B & 8 Bits \\\hline
+                Kilobyte & KB & $2^{10}$B \\\hline
+                Megabye & MB & $2^{20}$B = 1024 KB \\\hline
+                Gigabyte & GB & $2^{30}$B = 1024 MB \\\hline
+                Terabyte & TB & $2^{40}$B = 1024 GB \\\hline
+                Petabyte & PB & $2^{50}$B = 1024 TB \\\hline
+                Exabyte & EB & $2^{60}$B = 1024 TB \\\hline
+                Zettabyte & ZB & $2^{70}$B = 1024 EB \\\hline
+                Yottabyte & YB & $2^{80}$B = 1024 ZB \\\hline
+
+
+            \end{longtable}
+
+
+
+
 
             \newpage
         \subsection{Countess, weaving patterns and count machines}
