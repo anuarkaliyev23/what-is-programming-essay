@@ -315,6 +315,32 @@
             number bases with a following concept: we, humans, use $base_{10}$ mostly because it's very conveniently translates to \emph{number of our fingers and toes}.
             So, a $base_2$ would be only natural, if math was invented by dolphins! Since they have only two flippers from each side it would be super convenient for
             them to calculate. \par
+            
+            \begin{quote}
+                To convert $base_{10}$ number to $base_{2}$ number, you can consider following method:
+                \begin{enumerate}
+                    \item Divide your number by 2. You need to store both the \emph{quotient} end \emph{remainder}.
+                    \item Take your quotient as a number and repeat steps 1--2, until you got zero as a quotient
+                    \item Write down all your remainder in \emph{reverse order}. This is your binary number.
+                \end{enumerate}
+
+                e.g.\\
+                We want to transform $35_{10}$ into binary form:
+                
+                \begin{longtable}{|c|c|c|c|}
+                    \hline
+                    Step \# & Number & Quotient & Remainder \\\hline
+                    1 & 35 & 17 & 1 \\\hline
+                    2 & 17 & 8 & 1 \\\hline
+                    3 & 8 & 4 & 0 \\\hline
+                    4 & 4 & 2 & 0 \\\hline
+                    5 & 2 & 1 & 0 \\\hline
+                    6 & 1 & 0 & 1 \\\hline
+                \end{longtable}
+
+                Now we got a list of \emph{remainders}: \{1, 1, 0, 0, 0, 1\}. Once we put them in \emph{reverse} order, we got our binary form: $35_{10} = 100011_2$
+            \end{quote}
+            
     
             One might wonder: But why choose $base_2$ number system for computers in the first place? Well, the answer is, like many things, a result of overcoming
             real-world limitations. Any computer utilises some hardware, tangible, physical metal parts. Since computers nowadays are mostly electronic devices 
@@ -512,15 +538,99 @@
             We can make up a type, that works with \emph{fractions}\footnote{There are a number of ways to deal with fractions. 
             Example, described here is subtype of fixed-point fractional numbers. This particular method of dealing with them was chosen due to being somewhat simple}. 
             For example, let's create a type taking 2 bytes. In this case we can define, that 1\textsuperscript{st} byte will represent an integer part and a 2\textsuperscript{nd}
-            byte will represent a fractional part. For example:
+            byte will represent a fractional part. We can use an interesting property of numbers to achieve our goal: You see, we can present any number as a sum of digits,
+            multiplied by it's \emph{$base$} in the power of digit's ordinal number. \par
+            
+            Let's take a number, for example --- 1024. 
+            
+            \begin{quote}
+                $1024 = 1 * 10^3 + 0 * 10^2 + 2 * 10^1 + 4 * 10^0$. Mind that, this method works not only for $base_{10}$ numbers, but for any $base_x$, you should only correct
+                multiplier for digits. This will also convert number from $base_x$ to $base_{10}$ in the process\\\\
+                e.g.\\
+                $110101011_2 = 1 * 2^8 + 1 * 2^7 + 0 * 2^6 + 1 * 2^5 + 0 * 2^4 + 1 * 2^3 + 0 * 2^2 + 1 * 2^1 + 1 * 2^0 = 427_{10}$ \\\\
+                $1054_8 = 1 * 8^3 + 0 * 8^2 + 5 * 8^1 + 4 * 8^0 = 556_{10}$\\\\
+                $1AC3_{16} = 1 * 16^3 + 10_{10} * 16^2 + 12_{10} * 16^1 + 3 * 16^0 = 6851_{10}$
+            \end{quote}
 
-            \begin{longtable}{|c|c|c|}
-                \hline
-                $base_{10}$ number & integer part & decimal part \\\hline
-                1.0 & 00000001 & 00000000 \\\hline
-                25.0 & 00011001 & 00000000 \\\hline
-            \end{longtable}
+            So, you might wonder: \emph{How can it help us with fractions}? And I can answer: we present fraction part as some power of $base_x$! Consider following
+            example:
 
+            \begin{quote}
+                \begin{equation*}
+                    100.75_{10} = \begin{cases}
+                            01100100_2 \text{--- integer part}\\
+                            11000000_2 \text{--- fraction part}
+                        \end{cases}
+                    \end{equation*}
+
+                    \emph{
+                        Notice, we can trim all leading zeros in \emph{integer part} and all trailing zeros in the \emph{fraction part} without affecting a value.
+                        We are showing those zeros here for formatting purposes and to explicitly show, that we allocated one byte for each part\footnote{It's not imperative,
+                        we could allocate any number of bits/bytes we wanted}.
+                    }
+            \end{quote}
+            
+            We already know, how we got an \emph{integer part} of our number. But how on Earth did we calculate \emph{fraction part}?
+
+            \begin{quote}
+                To calculate a fraction part in binary, we should perform following operations:
+
+                \begin{enumerate}
+                    \item Trim integer part from our number, \emph{we should use only fraction part}.
+                    \item Multiply fraction part by 2. Store resulting \emph{integer part} somewhere.
+                    \item Repeat\footnote{It is possible to be stuck in this loop forever, so you should cap maximum repeatition times (maximum number of digits after the dot).} steps 1--2, passing result from the second step to the first step.
+                    \item List of \emph{integer} parts is your binary number.
+                \end{enumerate}
+
+                e.g.\\
+                \begin{longtable}{|c|c|c|c|}
+                    \hline
+                    Step \# & Number & Result & Result's integer part \\\hline
+                    1 & 0.75 -> 0.75 & 0.75 * 2 = 1.5 & 1 \\\hline
+                    2 & 1.5 -> 0.5 & 0.5 * 2 = 1.0 & 1 \\\hline                    
+                \end{longtable}
+
+                So, $11_2$ is our result for \emph{fraction part}.
+
+                We can, for clarification purposes, show our result as: $100.75_{10} = 1100100.11_2$. Our transformation method 
+                would still work\footnote{We could omit multiplications of zero, without affecting the value. They are shown for clarity}: \\
+
+                $100.75_{10} = 1 * 2^6 + 1 * 2^5 + 0 * 2^4 + 0 * 2^3 + 1 * 2^2 + 0 * 2^1 + 0 * 2^0 + 1 * 2^{-1} + 1 * 2^{-2}$ 
+            \end{quote}
+
+            That's how we can store fractional numbers, for example. Although, it might not usually be the only and exact case how it's done, but it gives us nice insight
+            into how we can use only binary integer number to store something not binary and not integer. We must also consider the fact, that not every number composes
+            so nicely into sum of $2^{-x}$. \emph{We cannot store $3.03_{10}$, for example, this way without some sort of rounding}. It may give insight into why computers
+            sometimes act weird on calculations (computers have trouble computing, isn't it nice?). \par
+
+            \dotfill
+            
+            However, the main point of this section is not just to give you info on how to transform different numbers in different bases. It's so basic and fundamental
+            operation that there is practically no way that you won't find an instrument to do this. In thousands of systems and programming languages, most of the time,
+            you wouldn't even bother with those operations. At most, you would just write something along the lines `Hey, transform this number to binary for me, will ya?'
+            \emph{So why did I wasted your time on this section?} Well, \emph{it is fundamental, nonetheless}. Practically everything is built on the principles that we 
+            talked about here. And the main idea of this section is not about some information transformation details --- it's that in general, \emph{any information
+            with one way or another will be transformed into binary form at some point}, if you are using a computer. I just thought it would be nice to give a couple of examples for
+            it not to sound magic-y of sorts \par
+
+            Main question of this section was: \emph{Do we really need to invent new encoding formats or some types of data?} And now, I want to believe, I can give an answer, that
+            can be understood, with the background consisting only of this section. \emph{Yes and no}. There wouldn't be any point in programming itself, if we wouldn't 
+            inventing something new with said program, would it? The main goal of programming is to \emph{teach your computer doing something new}. So, you will create 
+            something new, at least for your computer. But, doing so, \emph{it would be absolutely dreadful to re-invent everything}. So, you will use some standards and
+            wheels that were invented before you. It's only natural. If I wanted to, say, create a video-player, I would love to (I hope) create some player-specific functionality.
+            However, I wouldn't want to explain to my player what the number is. Or what is text. Or how to understand what time is it. \emph{I need to teach my player use it}, of course,
+            but \emph{it doesn't mean I need to re-invent it} for my player. \par
+
+            It's also interesting to observe, that nowadays programmers, in general, shouldn't bother with this stuff. I mean, they should know it, of course, but it's possible
+            to be able to program something and not to get into details of how this works. There are of course some fields, where doing these operations from scratch 
+            is a must\footnote{Somebody did write those instruments we all use, didn't he?} but it's not really that widespread anymore. Programming as a profession and as 
+            a science\footnote{Computer Science is a more correct term here} is somewhat new, of course. However, it's not as new as the most people think. I'd like to dwell
+            on this subject in the next section. All I wanted to say now, is that computers now are way-way more powerful than before. It allows us to automate many things, even
+            automation itself. Some time before \emph{every} programmer had to know \emph{exactly} how things like that worked on \emph{his exact computer}. There just 
+            weren't as many computers, as many instruments and performance capacity as today. Today, for better or worse, \emph{we have the luxury of not dwelling into much
+            detail like we did in this section}. It's like we are now the managers of computer, when we only say: `do that, take that, change those' and expect result, without
+            having to explain in great deal of detail \emph{how it must be done exactly}. It is a relative thing, of course. We still need to explain many things to computer,
+            keeping in mind many intricate details. However, \emph{with every generation of technology, we tend to explain to computers less `How' and more `What'}.
 
             \newpage
         \subsection{Countess, weaving patterns and count machines}
