@@ -3,7 +3,21 @@
 \usepackage{amsmath}
 \usepackage{longtable}
 \usepackage{float}
-\usepackage[utf8]{inputenc}
+
+\usepackage{luatextra}
+\setmainfont{CMU Serif}
+\setsansfont{CMU Sans Serif}
+\setmonofont{CMU Typewriter Text}
+
+\defaultfontfeatures{Ligatures=TeX}
+\usepackage{polyglossia}
+
+% Japanese, Chinese support
+\usepackage{CJKutf8}
+\usepackage{luatexja-fontspec}
+% Korean support
+\usepackage{luatexko}
+
 %Hyperref must be the last dependency
 \usepackage{hyperref}
 \hypersetup{colorlinks,%
@@ -635,6 +649,26 @@
             \newpage
         \subsection{Countess, weaving patterns and count machines}
 
+            So, essentially, what is a computer? And yes, there is a definition from Merriam-Webster dictionary in the first pages. \emph{But what does computer do, in its essence?}.
+            Well, it \emph{computes}, duh. \emph{So, the computer is a buffed-up calculator? Well, it is an oversimplification, but not really untrue}. If a five-year old asked me
+            what a computer is, I would definetely tell him, it is a calculator, but very powerful and calculating all sorts of stuff\footnote{I want to believe, that an explanation in 
+            the previous section gave you a clue, how it transforms all the stuff into numbers.}. \par
+
+            I want to devote this section to a brief historical overview of computers. Please, keep in mind, that it is a \emph{vast} topic. However, there are some moments in the very
+            beginning of computer history, that interests me the most, regarding this essay. Since this essay puts the programming perspective into focus, I want to explore 
+            a bit, how did the programming started. \par
+
+            But where should we start? Well, since computer was oversimplied to rather big calculator, I suggest we start with the calculators.\par
+
+            \begin{CJK}{UTF8}{}
+                The first attempts to help us count things are ancient. The first thing coming to mind is an \emph{abacus} or \emph{abaci} for plural. We don't know exacly when or
+                where it emerged\footnote{\href{https://en.wikipedia.org/wiki/Abacus}{https://en.wikipedia.org/wiki/Abacus}}. However, we do know, that many cultures used some form
+                of abacus or counting frame for calculating purposes. The principle behind those auxiliary devices they used is virtually the same in every cultures, despite the 
+                details being a little bit different. We have multiple names for different types of abaci in different
+                cultures\footnote{\href{https://en.wikipedia.org/wiki/Abacus}{https://en.wikipedia.org/wiki/Abacus}}: 算盤\footnote{`suanpan', China}, 
+                そろばん\footnote{`soroban', Japan. Can be represented as `算盤' also},
+                주판\footnote{`jupan', Korea. Could also be called supan (수판), jusan (주산)}, nepohualtzintzin\footnote{Aztec culture}, счёты\footnote{`schoty', Russia}
+            \end{CJK}
             \newpage
         \subsection{But can it speak?}
             \newpage
