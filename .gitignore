@@ -1,4 +1,6 @@
-*
-!.gitignore
-!*.pdf
-!*.tex
+*.aux
+*.log
+*.out
+*.gz
+*.toc
+*.synctex(busy)

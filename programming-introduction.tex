@@ -3,6 +3,8 @@
 \usepackage{amsmath}
 \usepackage{longtable}
 \usepackage{float}
+\usepackage{graphicx}
+\usepackage{wrapfig}
 
 \usepackage{luatextra}
 \setmainfont{CMU Serif}
@@ -15,7 +17,7 @@
 % Japanese, Chinese support
 \usepackage{CJKutf8}
 \usepackage{luatexja-fontspec}
-% Korean support
+% Korean support, cjk-ko is needed to be explicitly loaded
 \usepackage{luatexko}
 
 %Hyperref must be the last dependency
@@ -561,7 +563,7 @@
                 $1024 = 1 * 10^3 + 0 * 10^2 + 2 * 10^1 + 4 * 10^0$. Mind that, this method works not only for $base_{10}$ numbers, but for any $base_x$, you should only correct
                 multiplier for digits. This will also convert number from $base_x$ to $base_{10}$ in the process\\\\
                 e.g.\\
-                $110101011_2 = 1 * 2^8 + 1 * 2^7 + 0 * 2^6 + 1 * 2^5 + 0 * 2^4 + 1 * 2^3 + 0 * 2^2 + 1 * 2^1 + 1 * 2^0 = 427_{10}$ \\\\
+                $110101011_2 = 1 * 2^8 + 1 * 2^7 + 0 * 2^6 + 1 * 2^5 + 0 * 2^4 + 1 * 2^3 + 0 * 2^2 + 1 * 2^1 + 1 * 2^0 = 427_{10}$ \\\\                    
                 $1054_8 = 1 * 8^3 + 0 * 8^2 + 5 * 8^1 + 4 * 8^0 = 556_{10}$\\\\
                 $1AC3_{16} = 1 * 16^3 + 10_{10} * 16^2 + 12_{10} * 16^1 + 3 * 16^0 = 6851_{10}$
             \end{quote}
@@ -660,15 +662,92 @@
 
             But where should we start? Well, since computer was oversimplied to rather big calculator, I suggest we start with the calculators.\par
 
-            \begin{CJK}{UTF8}{}
-                The first attempts to help us count things are ancient. The first thing coming to mind is an \emph{abacus} or \emph{abaci} for plural. We don't know exacly when or
-                where it emerged\footnote{\href{https://en.wikipedia.org/wiki/Abacus}{https://en.wikipedia.org/wiki/Abacus}}. However, we do know, that many cultures used some form
-                of abacus or counting frame for calculating purposes. The principle behind those auxiliary devices they used is virtually the same in every cultures, despite the 
-                details being a little bit different. We have multiple names for different types of abaci in different
-                cultures\footnote{\href{https://en.wikipedia.org/wiki/Abacus}{https://en.wikipedia.org/wiki/Abacus}}: 算盤\footnote{`suanpan', China}, 
-                そろばん\footnote{`soroban', Japan. Can be represented as `算盤' also},
-                주판\footnote{`jupan', Korea. Could also be called supan (수판), jusan (주산)}, nepohualtzintzin\footnote{Aztec culture}, счёты\footnote{`schoty', Russia}
-            \end{CJK}
+            The first attempts to help us count things are ancient. The first thing coming to mind is an \emph{abacus} or \emph{abaci} for plural. We don't know exacly when or
+            where it emerged\footnote{\href{https://en.wikipedia.org/wiki/Abacus}{https://en.wikipedia.org/wiki/Abacus}}. However, we do know, that many cultures used some form
+            of abacus or counting frame for calculating purposes. The principle behind those auxiliary devices they used is virtually the same in every cultures, despite the 
+            details being a little bit different. We have multiple names for different types of abaci in different
+            cultures\footnote{\href{https://en.wikipedia.org/wiki/Abacus}{https://en.wikipedia.org/wiki/Abacus}}:
+            
+            \begin{longtable} {|c|c|c|p{4cm}|}
+                \hline
+                Original name & Transcription & Origin & Additional Info \\\hline
+                算盤 & suanpan & China & \\\hline
+                そろばん & soroban & Japan & Can be represented as `算盤' also \\\hline
+                주판 & jupan & Korea & Could also be called supan (수판), jusan (주산) \\\hline
+                nepohualtzintzin & & Aztec Culture & \\\hline
+                счеты & schoty & Russia & \\\hline
+            \end{longtable}
+
+            \begin{wrapfigure}{l}{0.3\textwidth}
+                \centering
+                \includegraphics[scale=0.1]{images/persons/person_blaise_pascal.jpg}
+                \caption{Blaise Pascal}
+            \end{wrapfigure}
+
+            However, those are purely mechanical and manual devices, main principle of which is very similar to how we convert numbers to different bases. They still
+            require us to `translate' our numbers to abacus system and, after we've done our math, translate them back. \par
+            
+            The first succesful automation attempt is attributed to Blaise Pascal, with his \emph{Arithmetic Machine} which is also called a \emph{Pascaline}.
+            It was designed and built between 1642 and 1644\footnote{\href{https://www.britannica.com/technology/Pascaline}{https://www.britannica.com/technology/Pascaline}}. 
+            Pascaline could only add and subtract numbers, using rotational dials as an input.\par
+
+            \begin{wrapfigure}{r}{0.6\textwidth}
+                \centering
+                \includegraphics[scale=0.3]{images/devices/device_pascaline_scheme.jpg}
+                \caption{Top view and overview of the mechanism}
+            \end{wrapfigure}
+
+            There are several pascalines still intact nowadays, most of the remaining ones are in european museums. Being the first calculator isn't the only achievement
+            of pascaline. Pascal was only 18 years old, when he started designing his machine, trying to help his father with accounting. He went through about 50 prototypes
+            before settled on the final one. Later Pascal presented his machine to the public, and, eventually, to the King of France, receiving a royal privilege, which 
+            was basically a patent in those days. And yes --- his father did use it in work afterwards \par
+
+            Pascaline wasn't a computer, but it was first in many ways --- first calculator, which was afterwards commercialized, used in business and patented. Many of 
+            subsequent attemps to farther automate calculations were directly inspired by Pascaline. \par
+
+            \begin{wrapfigure}{l}{0.3\textwidth}
+                \centering
+                \includegraphics[scale=0.2]{images/persons/person_joseph_jacquard.jpg}
+                \caption{Joseph Marie Jacquard}
+            \end{wrapfigure}
+
+            Next machine I want to discuss is not a computer either. It isn't even a calculator --- it's a loom. I cannot say much about weaving history, 
+            but in computer history, it was indeed the most significant loom there is. In 1804 a french weaver and merchant, Joseph Marie Jacquard invented a \emph{Jacquard Machine}.
+
+            Beginning of the 19\textsuperscript{th} century is pretty much a middle of industrial revolution. New fancy industrial looms are practically a 
+            symbol of the new era. Industrial revolution changed our world forever, marking a \emph{transition from hand production methods to machines}.
+            Despite Great Britain being the origin of the industrial revolution, it spread eventually over the continent, and afterwards, the world. 
+            Industrial revolution eventually lead to the \emph{emergence of the capitalist economy}. In other words --- \emph{Industrial revolition was a big deal}. \par
+
+            So, amidst all this revolution going, we could see how a work, that was being done by 100 men before can be done by 10 men with machines. It was \emph{super effecient}.
+            Inventors tried to find a way to increase production effeciency (and therefore revenue) by exploring technical capabilities of the machines they worked with. So 
+            Joseph Jacquard invented his machine, which was basically an \emph{attachment to the industrial loom}. A loom with an attached machine was subsequently called
+            \emph{Jacquard Loom}\footnote{Jacquard Loom is a general term, which does not describe any concrete loom, but rather any loom with the control 
+            mechanism, allowing pattern weaving automation}.
+
+            \begin{wrapfigure}{r}{0.5\textwidth}
+                \centering
+                \includegraphics[scale=0.2]{images/devices/device_jacquard_loom.jpg}
+                \caption{Jacquard Loom}
+            \end{wrapfigure}
+
+            The main purpose of Jacquard's attachment was an \emph{pattern weaving automation}. It used a chain of special cards laced together in a continuous, looped sequence.
+            Those cards will later be called \emph{punch cards}. Punch card is, essentially a card, with designated spaces for holes. Later, some designated space would be `punched'
+            to produce a hole in area. Some spaces were omitted during `punching'. After `punching' those holes we would have a card, partially filled with holes. Jacquard Loom
+            relies on a simple mechanical action of those cards. While continuously moving, those cards would move controlling rods of the loom, therefore affection knot being weaved. 
+            If there was no hole in the area, rod will move since card will push it. If there was a hole, rod wouldn't move since it would go through hole. \par
+
+            \begin{wrapfigure}{l}{0.5\textwidth}
+                \centering
+                \includegraphics[scale=0.8]{images/devices/device_loom_punch_card.jpg}
+                \caption{Sequence of punch card}
+            \end{wrapfigure}
+
+            This machine would \emph{drastically} impact effeciency, since it was no longer required to be of high skill to weave complicate patterns.
+
+
+            
+
             \newpage
         \subsection{But can it speak?}
             \newpage
