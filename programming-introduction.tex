@@ -281,7 +281,8 @@
             we can say for sure, that total possible variants a sequence of bits can hold equals to $2^x$, where 2 is a number of possible options a bit can `hold' (`0', `1'), 
             and $x$ is the number of bits we are ready to \emph{allocate}.
             
-            \begin{center}
+            \begin{table}[h]
+                \centering
                 \begin{longtable}{|c|c|c|}
                     \hline
                     Number of bits & Maximum options & Options \\\hline
@@ -290,8 +291,10 @@
                     3 & 8 & \{000, 001, 010, 011, 100, 101, 110, 111\} \\\hline
                     \ldots & \ldots & \ldots \\\hline
                     $x$ & $2^x$ & \{ $x$ times 0, \ldots, $x$ times 1\} \\\hline
+                    \caption{Total possible permutations of bits}
+
                 \end{longtable}
-            \end{center}
+            \end{table}
 
             To count something in bits is pretty similar as to how we would count something normally, but with one nuance. In a modern world, humans mostly calculating 
             everything in a $base_{10}$. This simply means, that we have \emph{10 digits} that construct \emph{all of our numbers}\footnote{There are examples of cultures, that used different number as their base. However $base_{10}$ is the ubiquitous one nowadays}. 
@@ -303,7 +306,8 @@
             easier for a human reading. Computer still operates with them in `raw' $base_2$ format}. So we can pretty much convert number in any base to any other 
             base, always keeping consistency:
 
-            \begin{center}
+            \begin{table}[H]
+                \centering
                 \begin{longtable}{|c|c|c|c|}
                     \hline
                     $base_{10}$ & $base_2$ & $base_8$ & $base_{16}$ \\\hline
@@ -325,8 +329,10 @@
                     $15_{10}$ & $1111_2$ & $17_8$ & $F_{16}$ \\\hline
                     $16_{10}$ & $10000_2$ & $20_8$ & $10_{16}$ \\\hline 
                     \ldots & \ldots & \ldots & \ldots \\\hline
+                    \caption{Numbers in different bases}
+
                 \end{longtable}
-            \end{center}
+            \end{table}
 
 
             This concept was wonderfully explained in Charles Petzold's book \emph{Code: The Hidden Language of Computer Hardware and Software}. He explains different
@@ -344,17 +350,21 @@
 
                 e.g.\\
                 We want to transform $35_{10}$ into binary form:
-                
-                \begin{longtable}{|c|c|c|c|}
-                    \hline
-                    Step \# & Number & Quotient & Remainder \\\hline
-                    1 & 35 & 17 & 1 \\\hline
-                    2 & 17 & 8 & 1 \\\hline
-                    3 & 8 & 4 & 0 \\\hline
-                    4 & 4 & 2 & 0 \\\hline
-                    5 & 2 & 1 & 0 \\\hline
-                    6 & 1 & 0 & 1 \\\hline
-                \end{longtable}
+                \begin{table}[h]
+                    \centering                
+                    \begin{longtable}{|c|c|c|c|}
+                        \hline
+                        Step \# & Number & Quotient & Remainder \\\hline
+                        1 & 35 & 17 & 1 \\\hline
+                        2 & 17 & 8 & 1 \\\hline
+                        3 & 8 & 4 & 0 \\\hline
+                        4 & 4 & 2 & 0 \\\hline
+                        5 & 2 & 1 & 0 \\\hline
+                        6 & 1 & 0 & 1 \\\hline
+                        \caption{Step-by-step operations to convert $35_{10}$ to $base_2$}
+
+                    \end{longtable}
+                \end{table}
 
                 Now we got a list of \emph{remainders}: \{1, 1, 0, 0, 0, 1\}. Once we put them in \emph{reverse} order, we got our binary form: $35_{10} = 100011_2$
             \end{quote}
@@ -393,7 +403,8 @@
             be simple bits sequences. Number of bits in these sequences will be equal to 4, since $2^4 \geq 12$\\
             Let's come up with a system of codes for T-Shirts:
 
-            \begin{center}
+            \begin{table}[h]
+                \centering
                 \begin{longtable}{|c|c|}
                     \hline
                     T-Shirt & Code \\\hline
@@ -409,9 +420,9 @@
                     White & 1001 \\\hline 
                     Orange & 1010 \\\hline
                     Beige & 1011 \\\hline
+                    \caption{Our \emph{encoding} for T-Shirts}
                 \end{longtable}
-            \end{center}
-
+            \end{table}
             So, upon opening my drawer and seeing my green T-Shirt on top I received 4 bits of information. If my drawer (or the T-Shirt itself) could send me binary
             information, they would send me `0010' representing it's color in this particular context.\par
 
@@ -488,19 +499,25 @@
 
             Eventually a nomenclature was formed: 
 
-            \begin{longtable}{|c|c|c|}
-                \hline
-                Name & Denotion & Size \\\hline
-                Byte & B & 8 Bits \\\hline
-                Kilobyte & KB & $2^{10}$B \\\hline
-                Megabye & MB & $2^{20}$B = 1024 KB \\\hline
-                Gigabyte & GB & $2^{30}$B = 1024 MB \\\hline
-                Terabyte & TB & $2^{40}$B = 1024 GB \\\hline
-                Petabyte & PB & $2^{50}$B = 1024 TB \\\hline
-                Exabyte & EB & $2^{60}$B = 1024 TB \\\hline
-                Zettabyte & ZB & $2^{70}$B = 1024 EB \\\hline
-                Yottabyte & YB & $2^{80}$B = 1024 ZB \\\hline
-            \end{longtable}
+
+            \begin{table}[h]
+                \centering
+                \begin{longtable}{|c|c|c|}
+                    \hline
+                    Name & Denotion & Size \\\hline
+                    Byte & B & 8 Bits \\\hline
+                    Kilobyte & KB & $2^{10}$B \\\hline
+                    Megabye & MB & $2^{20}$B = 1024 KB \\\hline
+                    Gigabyte & GB & $2^{30}$B = 1024 MB \\\hline
+                    Terabyte & TB & $2^{40}$B = 1024 GB \\\hline
+                    Petabyte & PB & $2^{50}$B = 1024 TB \\\hline
+                    Exabyte & EB & $2^{60}$B = 1024 TB \\\hline
+                    Zettabyte & ZB & $2^{70}$B = 1024 EB \\\hline
+                    Yottabyte & YB & $2^{80}$B = 1024 ZB \\\hline
+                    
+                    \caption{Nomenclature of bit capacity}
+                \end{longtable}
+            \end{table}
 
             Since we know, that space being occupied on computers directly tied to a total number of variants, we can now embrace some weird things, we can encounter
             in programming. For instance, consider following examples
@@ -526,29 +543,39 @@
             `types' of numbers\footnote{Programming Language types is a vast and fundamental topic, and not limited just to numbers.}. Most of the times we just allocating 
             different number of bytes to numbers, inherently making these numbers elements of the finite set. Generic example of this can be seen as:
             
-            \begin{longtable}{|c|c|c|}
-                \hline
-                Name of the type & Size & Possible values \\\hline
-                Pretty-Small-Number & 1 Byte & $x \in [0..2^8 - 1]$ \\\hline
-                Not-So-Small-Number & 2 Bytes & $x \in [0..2^{16} - 1]$\\\hline
-                Generic-Number & 4 bytes & $x \in [0..2^{32} - 1]$\\\hline
-                Pretty-Big-Number & 8 bytes & $x \in [0..2^{64} - 1]$\\\hline
-                Very-Very-Big-Number & 16 bytes & $x \in [0..2^{128} - 1]$\\\hline
-            \end{longtable}
+            \begin{table}[H]
+                \centering
+                \begin{longtable}{|c|c|c|}
+                    \hline
+                    Name of the type & Size & Possible values \\\hline
+                    Pretty-Small-Number & 1 Byte & $x \in [0..2^8 - 1]$ \\\hline
+                    Not-So-Small-Number & 2 Bytes & $x \in [0..2^{16} - 1]$\\\hline
+                    Generic-Number & 4 bytes & $x \in [0..2^{32} - 1]$\\\hline
+                    Pretty-Big-Number & 8 bytes & $x \in [0..2^{64} - 1]$\\\hline
+                    Very-Very-Big-Number & 16 bytes & $x \in [0..2^{128} - 1]$\\\hline
+                    \caption{Example number type sizes}
 
+                \end{longtable}
+            \end{table}
+            
             But wait --- we cannot create negative numbers in this example! Should we use structure just like this for negative numbers also? We can, but it's not really convenient.
             However, we can reserve one our bits for the sign! Thus, we will not change total number of variants these bits provide us, but will change encoding for each number, subsequently
             `shifting' our set of possible values:
 
-            \begin{longtable}{|c|c|c|}
-                \hline
-                Name of the type & Size & Possible values \\\hline
-                Pretty-Small-Number-With-Sign & 1 Byte & $x \in [-2^7..2^7 - 1]$ \\\hline
-                Not-So-Small-Number-With-Sign & 2 Bytes & $x \in [-2^{15}..2^{15} - 1]$\\\hline
-                Generic-Number-With-Sign & 4 bytes & $x \in [-2^{31}..2^{31} - 1]$\\\hline
-                Pretty-Big-Number-With-Sign & 8 bytes & $x \in [-2^{63}..2^{63} - 1]$\\\hline
-                Very-Very-Big-Number-With-Sign & 16 bytes & $x \in [-2^{127}..2^{127} - 1]$\\\hline
-            \end{longtable}
+            \begin{table}[H]
+                \centering
+                \begin{longtable}{|c|c|c|}
+                    \hline
+                    Name of the type & Size & Possible values \\\hline
+                    Pretty-Small-Number-With-Sign & 1 Byte & $x \in [-2^7..2^7 - 1]$ \\\hline
+                    Not-So-Small-Number-With-Sign & 2 Bytes & $x \in [-2^{15}..2^{15} - 1]$\\\hline
+                    Generic-Number-With-Sign & 4 bytes & $x \in [-2^{31}..2^{31} - 1]$\\\hline
+                    Pretty-Big-Number-With-Sign & 8 bytes & $x \in [-2^{63}..2^{63} - 1]$\\\hline
+                    Very-Very-Big-Number-With-Sign & 16 bytes & $x \in [-2^{127}..2^{127} - 1]$\\\hline
+                    \caption{Number types, supporting negative numbers}
+
+                \end{longtable}
+            \end{table}
 
             It's all good and all, but these examples show only \emph{integer} numbers. What if we have some number like 9.23?
             We cannot store it in any type of the aforementioned tables --- none of them support fractions. \par
@@ -669,18 +696,21 @@
             of abacus or counting frame for calculating purposes. The principle behind those auxiliary devices they used is virtually the same in every cultures, despite the 
             details being a little bit different. We have multiple names for different types of abaci in different
             cultures\footnote{\href{https://en.wikipedia.org/wiki/Abacus}{https://en.wikipedia.org/wiki/Abacus}}:
-            
-            \begin{longtable} {|c|c|c|p{4cm}|}
-                \hline
-                Original name & Transcription & Origin & Additional Info \\\hline
-                算盤 & suanpan & China & \\\hline
-                そろばん & soroban & Japan & Can be represented as `算盤' also \\\hline
-                주판 & jupan & Korea & Could also be called supan (수판), jusan (주산) \\\hline
-                nepohualtzintzin & & Aztec Culture & \\\hline
-                счеты & schoty & Russia & \\\hline
-            \end{longtable}
+            \begin{table}[h]
+                \begin{longtable} {|c|c|c|p{4cm}|}
+                    \hline
+                        Original name & Transcription & Origin & Additional Info \\\hline
+                        算盤 & suanpan & China & \\\hline
+                        そろばん & soroban & Japan & Can be represented as `算盤' also \\\hline
+                        주판 & jupan & Korea & Could also be called supan (수판), jusan (주산) \\\hline
+                        nepohualtzintzin & & Aztec Culture & \\\hline
+                        счеты & schoty & Russia & \\\hline
+                        \caption{Abaci in different cultures}
+                    \end{longtable}
+            \end{table}
 
-            \begin{wrapfigure}{l}{0.3\textwidth}
+            \newpage                
+            \begin{wrapfigure}{lh}{0.3\textwidth}
                 \centering
                 \includegraphics[scale=0.1]{images/persons/person_blaise_pascal.jpg}
                 \caption{Blaise Pascal}
@@ -693,7 +723,7 @@
             It was designed and built between 1642 and 1644\footnote{\href{https://www.britannica.com/technology/Pascaline}{https://www.britannica.com/technology/Pascaline}}. 
             Pascaline could only add and subtract numbers, using rotational dials as an input.\par
 
-            \begin{wrapfigure}{r}{0.6\textwidth}
+            \begin{wrapfigure}{r}{0.5\textwidth}
                 \centering
                 \includegraphics[scale=0.3]{images/devices/device_pascaline_scheme.jpg}
                 \caption{Top view and overview of the mechanism}
@@ -704,14 +734,14 @@
             before settled on the final one. Later Pascal presented his machine to the public, and, eventually, to the King of France, receiving a royal privilege, which 
             was basically a patent in those days. And yes --- his father did use it in work afterwards \par
 
-            Pascaline wasn't a computer, but it was first in many ways --- first calculator, which was afterwards commercialized, used in business and patented. Many of 
-            subsequent attemps to farther automate calculations were directly inspired by Pascaline. \par
-
             \begin{wrapfigure}{l}{0.3\textwidth}
                 \centering
                 \includegraphics[scale=0.2]{images/persons/person_joseph_jacquard.jpg}
                 \caption{Joseph Marie Jacquard}
             \end{wrapfigure}
+
+            Pascaline wasn't a computer, but it was first in many ways --- first calculator, which was afterwards commercialized, used in business and patented. Many of 
+            subsequent attemps to farther automate calculations were directly inspired by Pascaline. \par
 
             Next machine I want to discuss is not a computer either. It isn't even a calculator --- it's a loom. I cannot say much about weaving history, 
             but in computer history, it was indeed the most significant loom there is. In 1804 a french weaver and merchant, Joseph Marie Jacquard invented a \emph{Jacquard Machine}.
@@ -721,16 +751,23 @@
             Despite Great Britain being the origin of the industrial revolution, it spread eventually over the continent, and afterwards, the world. 
             Industrial revolution eventually lead to the \emph{emergence of the capitalist economy}. In other words --- \emph{Industrial revolition was a big deal}. \par
 
+            \begin{wrapfigure}{r}{0.5\textwidth}
+                \centering
+                \includegraphics[scale=0.2]{images/devices/device_jacquard_loom.jpg}
+                \caption{Jacquard Loom}
+            \end{wrapfigure}
+
             So, amidst all this revolution going, we could see how a work, that was being done by 100 men before can be done by 10 men with machines. It was \emph{super effecient}.
             Inventors tried to find a way to increase production effeciency (and therefore revenue) by exploring technical capabilities of the machines they worked with. So 
             Joseph Jacquard invented his machine, which was basically an \emph{attachment to the industrial loom}. A loom with an attached machine was subsequently called
             \emph{Jacquard Loom}\footnote{Jacquard Loom is a general term, which does not describe any concrete loom, but rather any loom with the control 
             mechanism, allowing pattern weaving automation}.
 
-            \begin{wrapfigure}{r}{0.5\textwidth}
+
+            \begin{wrapfigure}{l}{0.5\textwidth}
                 \centering
-                \includegraphics[scale=0.2]{images/devices/device_jacquard_loom.jpg}
-                \caption{Jacquard Loom}
+                \includegraphics[scale=0.25]{images/misc/luddites.jpg}
+                \caption{1844's depiction of Luddites destroying the loom}
             \end{wrapfigure}
 
             The main purpose of Jacquard's attachment was an \emph{pattern weaving automation}. It used a chain of special cards laced together in a continuous, looped sequence.
@@ -739,11 +776,6 @@
             relies on a simple mechanical action of those cards. While continuously moving, those cards would move controlling rods of the loom, therefore affect knot being weaved. 
             If there was no hole in the area, rod will move since card will push it. If there was a hole, rod wouldn't move since it would go through hole. \par
 
-            \begin{wrapfigure}{l}{0.5\textwidth}
-                \centering
-                \includegraphics[scale=0.25]{images/misc/luddites.jpg}
-                \caption{1844's depiction of Luddites destroying the loom}
-            \end{wrapfigure}
 
             This machine would \emph{drastically} impact effeciency, since it was no longer required to be of high skill to weave complicate patterns. It, essentially, gave
             manufacturers ability to \emph{store design patterns and to reproduce them indefinitely}\footnote{At least until punch cards are in fine condition}. The man behind
@@ -751,6 +783,12 @@
             Just imagine a reaction from weavers, that used to work by hand. No surprise, that \emph{Luddites}\footnote{The term itself initially related to an organisation 
             of English textile workers. However, over time it has come to mean one opposed to new technologies in general}
             destroyed such machines to protest against their usage. \par
+            
+            \begin{wrapfigure}{l}{0.3\textwidth}
+                \centering
+                \includegraphics[scale=0.2]{images/persons/person_charles_babbage.png}
+                \caption{Charles Babbage}
+            \end{wrapfigure}
 
             Well, the idea of using automation in weaving patterns have touched deeply not only the Luddites, but also at least one mathematician, which was also a philosopher,
             inventor and mechanical engineer. It's just so happened this was also a man, who will be considered as the `father of the computer'\footnote{\href{https://cse.umn.edu/cbi/who-was-charles-babbage}
@@ -758,15 +796,16 @@
             Marx\footnote{\href{https://projects.exeter.ac.uk/babbage/rosenb.html}{https://projects.exeter.ac.uk/babbage/rosenb.html}}. A man called Charles Babbage was deeply
             inspired by Joseph Jacquard's invention and intended to use his ingenious punch cards in his own machine. \par
 
-            \begin{wrapfigure}{l}{0.3\textwidth}
-                \centering
-                \includegraphics[scale=0.3]{images/persons/person_charles_babbage.png}
-                \caption{Charles Babbage}
-            \end{wrapfigure}
-
             Charles Babbage was an inventor of 2 machines, that are of interest in this essay: \emph{Difference Engine} and \emph{Analytical Engine}. Both of these machines
             were not finished in his lifetime, unfortunately. Nonetheless, this heritage of 2 unfinished machines marked a signinificant point in history of computers. More 
             than that, \emph{those 2 machines gave an opportunity for the first ever programmer to become a first ever programmer}. \par
+            
+            \begin{wrapfigure}{r}{0.5\textwidth}
+                \centering
+                \includegraphics[scale=0.25]{images/devices/device_babbage_difference_engine.jpg}
+                \caption{Part of Babbage's Difference Engine}
+            \end{wrapfigure}
+
 
             The Difference Engine, essentially was a giant mechanical calculator, that was powered by steam and printed results of it's computations in a table. 
             The format of the result was chosen due to being practical in that time --- many fields relied on tabular data to perform operations. One of the most
@@ -791,10 +830,10 @@
             the only legitimate child of Lord Baron, an English Poet. She showed an interest in this machine and became a life-long friend of Charles Babbage.
             Correspondence between the two is pretty well preserved to this day, providing insight to the next Babbage's invention. \par
 
-            \begin{wrapfigure}{r}{0.5\textwidth}
+            \begin{wrapfigure}{l}{0.3\textwidth}
                 \centering
-                \includegraphics[scale=0.25]{images/devices/device_babbage_difference_engine.jpg}
-                \caption{Part of Babbage's Difference Engine}
+                \includegraphics[scale=0.8]{images/misc/analytical_engine_punch_cards.jpg}
+                \caption{Punch cards used to program the machine\\\tiny{Photo by Karoly Lorentey, sourced from wikimedia commons, under  Creative Commons Attribution 2.0 Generic license.}}
             \end{wrapfigure}
 
             As was mentioned before, Difference Engine project did end up exceeding given funding. Charles Babbage wasn't able to continue to work on his machine --- he couldn't
@@ -805,11 +844,6 @@
             {https://www.britannica.com/technology/Analytical-Engine}}. I'm jumping a little bit forward here, but \emph{in the Babbage's lifetime, only a small trial 
             engine was constructed.}  \par
 
-            \begin{wrapfigure}{l}{0.3\textwidth}
-                \centering
-                \includegraphics[scale=0.8]{images/misc/analytical_engine_punch_cards.jpg}
-                \caption{Punch cards used to program the machine\\\tiny{Photo by Karoly Lorentey, sourced from wikimedia commons, under  Creative Commons Attribution 2.0 Generic license.}}
-            \end{wrapfigure}
 
             Analytical Engine was designed to consist of four major elements: the mill, the store, the reader and the printer. Functionally, modern computers pretty much
             repeat this architecture. Those elements have very much resemblance with somewhat modern computer architectures. In this architecture, the mill acts as a `brain'
@@ -830,11 +864,7 @@
             in many of the early computers of the 20\textsuperscript{th} century\footnote{\href{https://www.britannica.com/technology/Analytical-Engine}
             {https://www.britannica.com/technology/Analytical-Engine}}! \par
 
-            \begin{wrapfigure}{l}{0.3\textwidth}
-                \centering
-                \includegraphics[scale=0.2]{images/persons/person_ada_lovelace.jpg}
-                \caption{\\Augusta Ada King, \\ Countess of Lovelace}
-            \end{wrapfigure}
+
 
             Using punch cards as a format of input data not only have fascinated Babbage, but Ada Byrone too. For the next ten years, after the aforementioned party, she
             did study almost daily, learning from Babbage all she could about the machine. In the meantime she married William King in 1835, thus making her Ada King. In 1838
@@ -852,11 +882,17 @@
             also \emph{extended it with her own thought and commentary}. So, it became `Sketch of the Analytical Engine invented by Charles Babbage with Notes by the Translator Augusta Ada King, Countess Lovelace'.
             Her resulting work was published in 1843 and \emph{3 times as long as the original paper}\footnote{\href{https://www.historyofinformation.com/detail.php?id=467}{https://www.historyofinformation.com/detail.php?id=467}}. \par
 
+            \begin{wrapfigure}{l}{0.3\textwidth}
+                \centering
+                \includegraphics[scale=0.2]{images/persons/person_ada_lovelace.jpg}
+                \caption{\\Augusta Ada King, \\ Countess of Lovelace}
+            \end{wrapfigure}
+
             She also illustrated in her notes a sequential solution of various problems, through input in a form of punch cards into Analytical Engine. So, basically, she used 
             those punch cards the same way we are using keyboard and mouse to interact with the machine. Thus, making it the \emph{first ever documented and published program --- a 
             set of instructions for computer to follow}. So, meet the first programmer ever --- Countess Lovelace. \par
 
-            \begin{wrapfigure}{r}{0.6\textwidth}
+            \begin{wrapfigure}{r}{0.5\textwidth}
                 \centering
                 \includegraphics[scale=0.15]{images/misc/ada_lovelace_bernoulli_numbers_program.jpg}
                 \caption{Program to calculate Bernoulli Numbers by Ada Lovelace}
@@ -980,6 +1016,10 @@
             % 2014 --- Apple Pay is released
             % 2014 --- HTML 5 is announced
 
+            \newpage
+        \subsection{Marty, we need to go back in time!}
+            
+            This section touches briefly selected events, significant for computer history. Although it was noted, this 
 
 
 
