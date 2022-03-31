@@ -6,6 +6,8 @@
 \usepackage{graphicx}
 \usepackage{wrapfig}
 \usepackage{caption}
+\usepackage{booktabs}
+\usepackage{tablefootnote}
 \usepackage[group-separator={,}]{siunitx}
 
 \usepackage{luatextra}
@@ -405,21 +407,23 @@
 
             \begin{table}[h]
                 \centering
-                \begin{longtable}{|c|c|}
-                    \hline
-                    T-Shirt & Code \\\hline
-                    Red & 0000 \\\hline
-                    Brown & 0001 \\\hline
-                    Green & 0010 \\\hline
-                    Yellow & 0011 \\\hline
-                    Pink & 0100 \\\hline
-                    Gray & 0101 \\\hline
-                    Purple & 0110 \\\hline
-                    Blue & 0111 \\\hline
-                    Black & 1000 \\\hline
-                    White & 1001 \\\hline 
-                    Orange & 1010 \\\hline
-                    Beige & 1011 \\\hline
+                \begin{longtable}{cc}
+                    \toprule
+                    T-Shirt & Code \\
+                    \toprule
+                    Red & 0000 \\
+                    Brown & 0001 \\
+                    Green & 0010 \\
+                    Yellow & 0011 \\
+                    Pink & 0100 \\
+                    Gray & 0101 \\
+                    Purple & 0110 \\
+                    Blue & 0111 \\
+                    Black & 1000 \\
+                    White & 1001 \\
+                    Orange & 1010 \\
+                    Beige & 1011 \\
+                    \bottomrule
                     \caption{Our \emph{encoding} for T-Shirts}
                 \end{longtable}
             \end{table}
@@ -502,19 +506,20 @@
 
             \begin{table}[h]
                 \centering
-                \begin{longtable}{|c|c|c|}
-                    \hline
-                    Name & Denotion & Size \\\hline
-                    Byte & B & 8 Bits \\\hline
-                    Kilobyte & KB & $2^{10}$B \\\hline
-                    Megabye & MB & $2^{20}$B = 1024 KB \\\hline
-                    Gigabyte & GB & $2^{30}$B = 1024 MB \\\hline
-                    Terabyte & TB & $2^{40}$B = 1024 GB \\\hline
-                    Petabyte & PB & $2^{50}$B = 1024 TB \\\hline
-                    Exabyte & EB & $2^{60}$B = 1024 TB \\\hline
-                    Zettabyte & ZB & $2^{70}$B = 1024 EB \\\hline
-                    Yottabyte & YB & $2^{80}$B = 1024 ZB \\\hline
-                    
+                \begin{longtable}{ccc}
+                    \toprule
+                    Name & Denotion & Size \\
+                    \toprule
+                    Byte & B & 8 Bits \\
+                    Kilobyte & KB & $2^{10}$B \\
+                    Megabye & MB & $2^{20}$B = 1024 KB \\
+                    Gigabyte & GB & $2^{30}$B = 1024 MB \\
+                    Terabyte & TB & $2^{40}$B = 1024 GB \\
+                    Petabyte & PB & $2^{50}$B = 1024 TB \\
+                    Exabyte & EB & $2^{60}$B = 1024 TB \\
+                    Zettabyte & ZB & $2^{70}$B = 1024 EB \\
+                    Yottabyte & YB & $2^{80}$B = 1024 ZB \\
+                    \bottomrule
                     \caption{Nomenclature of bit capacity}
                 \end{longtable}
             \end{table}
@@ -697,15 +702,18 @@
             details being a little bit different. We have multiple names for different types of abaci in different
             cultures\footnote{\href{https://en.wikipedia.org/wiki/Abacus}{https://en.wikipedia.org/wiki/Abacus}}:
             \begin{table}[h]
-                \begin{longtable} {|c|c|c|p{4cm}|}
-                    \hline
-                        Original name & Transcription & Origin & Additional Info \\\hline
-                        算盤 & suanpan & China & \\\hline
-                        そろばん & soroban & Japan & Can be represented as `算盤' also \\\hline
-                        주판 & jupan & Korea & Could also be called supan (수판), jusan (주산) \\\hline
-                        nepohualtzintzin & & Aztec Culture & \\\hline
-                        счеты & schoty & Russia & \\\hline
-                        \caption{Abaci in different cultures}
+                \centering
+                \begin{longtable} {p{0.15\textwidth}p{0.2\textwidth}p{0.2\textwidth}p{0.3\textwidth}}
+                    \toprule
+                    Original name & Transcription & Origin & Additional Info \\
+                    \toprule
+                    算盤 & suanpan & China & \\
+                    そろばん & soroban & Japan & Can be represented as `算盤' also \\
+                    주판 & jupan & Korea & Could also be called supan (수판), jusan (주산) \\
+                    nepohualtzintzin & & Aztec Culture & \\
+                    счеты & schoty & Russia & \\
+                    \bottomrule
+                    \caption{Abaci in different cultures}
                     \end{longtable}
             \end{table}
 
@@ -914,115 +922,111 @@
             London Science Museum\footnote{\href{https://collection.sciencemuseumgroup.org.uk/objects/co526657/difference-engine-no-2-designed-by-charles-babbage-built-by-science-museum-difference-engine}
             {https://collection.sciencemuseumgroup.org.uk/objects/co526657/difference-engine-no-2-designed-by-charles-babbage-built-by-science-museum-difference-engine}}. 
             Constructors tried to adjust for physical properties achievable in 19\textsuperscript{th} century. It was concluded, that machine would've worked\footnote{\href{https://en.wikipedia.org/wiki/Difference_engine}
-            {https://en.wikipedia.org/wiki/Difference\_engine}}.
+            {https://en.wikipedia.org/wiki/Difference\_engine}}. \par
 
-
-
-            % https://www.computerhistory.org/timeline
-
-            % 1937 --- Gerge Stibitz
-            % 1938 --- Konrad Zuse Z1
-            % 1939 --- Konrad Zuse Z2
-            % 1941 --- Konrad Zuze, Z3 computer
-            % 1945 --- John von Neumann, First Draft of a Report on the EDVAC
-            % 1948 --- Claude Shannon, Mathematical Theory of Communication
-            % 1948 --- First Computer Program to run on a computer
-            % 1949 --- Birth of the Modem
-            % 1952 --- OXO (Tic-Tac-Toe) in Cambridge
-            % 1952 --- A-0 Programming Language
-            % 1956 --- Direct Keyboard input to computers
-            % 1957 --- FORTRAN
-            % 1958 --- LISP
-            % 1960 --- COBOL
-            % 1960 --- ALGOL-60
-            % 1968 --- Apollo guidance computer
-            % 1969 --- ARPAnet network in online
-            % 1969 --- Kenneth Thompson and Dennis Ritchie develop UNIX
-            % 1970 --- First ATM
-            % 1970 --- Pascal
-            % 1970 --- Email blows up in ARPAnet
-            % 1972 --- C
-            % 1972 --- Pong
-            % 1973 --- Birth of modern mobile networks
-            % 1973 --- Birth of the early Internet
-            % 1976 --- Queen Elizabeth II of the UK sent first e-mail
-            % 1976 --- Steve Wozniak completes the Apple-1, marketed by Steve Jobs
-            % 1977 --- Apple II introduced. One of the first PCs.
-            % 1977 --- Atari Console, first widely accessible one
-            % 1978 --- First computers installed in the White House
-            % 1978 --- LaserDisc, predecessor of CD/DVD
-            % 1978 --- MUDs (Multi-User Domain), program allowed users to play against each other on-line
-            % 1978 --- Visicalc, program turning Apple II into a business machine
-            % 1978 --- First computer Worm created
-            % 1980 --- Enquire, predecessor of WWW.
-            % 1980 --- IBM introduces PC. Rise of MS-DOS
-            % 1983 --- Apple Lisa, introduced, the first computer GUI
-            % 1983 --- CD-ROM, holds 550 megabytes of pre-recorded data'
-            % 1983 --- Microsoft introduces Word 
-            % 1983 --- Richard Stallman develops GNU
-            % 1983 --- Internet officially launched
-            % 1984 --- OSI standards published
-            % 1985 --- C++ is published
-            % 1987 --- GSM standards formally agreed
-            % 1987 --- Perl invented
-            % 1987 --- Mathematica language created
-            % 1989 --- Internet has 100,000 hosts
-            % 1989 --- Deep Thought program defeats David Levy, master chess player
-            % 1989 --- Nintendo releases Game Boy
-            % 1990 --- First successful launch of Windows 3.0
-            % 1990 --- Initial release of Photoshop
-            % 1990 --- World Wide Web is born
-            % 1991 --- Babbage's Difference Engine #2 is constructed
-            % 1991 --- Linus Torvalds releases Linux kernel
-            % 1991 --- NSF lifts restrictions on commercial use of the Internet
-            % 1992 --- JPEG standard finalized
-            % 1992 --- SSD prototype made
-            % 1993 --- Doom released
-            % 1993 --- Windows NT is released
-            % 1993 --- Mosaic, reliable and easy-to-install browser introduced.
-            % 1993 --- First online ads appeared
-            % 1994 --- Netscape browser introduced
-            % 1995 --- DVD introduced
-            % 1995 --- Java 1.0 introduced 
-            % 1995 --- Javvacript is developed
-            % 1995 --- Windows 95
-            % 1996 --- Web users reach 36 million
-            % 1997 --- Grand Theft Auto is released
-            % 1997 --- CD-RW
-            % 1997 --- DeepBlue defeats Gary Kasparov
-            % 1997 --- Microsoft introduces Visual Studio
-            % 1997 --- SGI releases Maya
-            % 1999 --- WiFi routers came for personal use
-            % 2000 --- First camera phone introduced
-            % 2000 --- USB Flash drive
-            % 2000 --- Y2K
-            % 2001 --- Bittorrent launched
-            % 2001 --- First Apple stores open
-            % 2001 --- Mac OS X is released
-            % 2001 --- The Dot Com Boom
-            % 2001 --- Windows XP released
-            % 2004 --- World of Warcraft comes on-line
-            % 2004 --- Google's IPO
-            % 2005 --- Arduino Introduces
-            % 2006 --- AWS launches Cloud-Based Services
-            % 2006 --- WikiLeaks established
-            % 2007 --- Dropbox introduces
-            % 2007 --- First 1TB HDD announced
-            % 2007 --- Amazon Kindle is released
-            % 2007 --- Apple iPhone is released
-            % 2008 --- MacBook Air is released
-            % 2009 --- Bitcoin launches
-            % 2010 --- The Apple iPad is released
-            % 2014 --- Apple Pay is released
-            % 2014 --- HTML 5 is announced
-
-            \newpage
-        \subsection{Marty, we need to go back in time!}
             
-            This section touches briefly selected events, significant for computer history. Although it was noted, this 
+            Computer history is filled with many significant occasions since 19\textsuperscript{th} century. As was said, it is indeed a vast topic, although we will 
+            mention few\footnote{Most occasions here are sourced from \href{https://www.computerhistory.org/timeline/}{https://www.computerhistory.org/timeline/}}:
 
+            \begin{longtable}{p{0.2\textwidth}p{0.8\textwidth}}
+                \toprule
+                Year & Details \\
+                \midrule
+                1941 & Konrad Zuse finishes first programmable, electric digital computer, called Z3. Basically, all the Babbage wanted, 
+                        but with electricity in the form, we most familiar with, today\\
+                \midrule
+                1945 & John von Neumann described an architecture, that is the basis for virtually all of the computers we have today. 
+                        This architecture later will be known as `von Neumann Architecture' or `Architecture of von Neumann Machine'\\
+                \midrule
+                1948 & Claude Shannon formulated his first thoughts regarding what will be regarded as `Information Theory' in the future \\
+                \cmidrule(r){2-2}
+                        & First computer program ran on the computer\\
+                \midrule
+                1952 & Grace Hopper invented first high-level programming language, A-0. It will evolve into COBOL later. \\
+                \midrule
+                1956 & Keyboard was succesfully connected to computer. Prior to this point, all programming had to be done by 
+                        punch cards or similar non-keyboard altertnatives\\
+                \midrule
+                1957 & FORTRAN created, \emph{first widely used high-level language}. \\
+                \midrule
+                1958 & LISP developed \\
+                \midrule
+                1960 & COBOL developed. COBOL \emph{still} highly in use today, especially in financial sector. Up to 80\% of the world's daily business transaction rely on 
+                COBOL, source: \href{https://www.ibm.com/blogs/ibm-training/did-you-know-80-percent-of-the-worlds-daily-business-transactions-rely-on-cobol/}
+                {https://www.ibm.com/blogs/ibm-training/did-you-know-80-percent-of-the-worlds-daily-business-transactions-rely-on-cobol/} \\
 
+                \cmidrule(r){2-2}
+                        & ALGOL-60 developed \\
+                \midrule
+                1969 & ARPANET first online. ARPANET is a direct predecessor for the \emph{Internet} we know today\\
+                \cmidrule(r){2-2}
+                        & Kenneth Thompson and Dennis Ritchie developed UNIX. It's not too much of a stretch to say, that it is one of the most significant OS in history
+                        of computers. They influenced virtually all OS in use today. Because of the UNIX, or with it heavy influence, we got Linux, iOS, OS X, Android and Windows\\
+                \midrule
+                1970 & First ATM can be used by general public. \\
+                \cmidrule(r){2-2}
+                        & Pascal programming language developed. \\
+                \midrule
+                1972 & C language developed. C is one of the \emph{most influential} programming language there is. It's average popularity, by 
+                TIOBE index, consistently ranked as \emph{top-2 since 1987}, source: \href{https://www.tiobe.com/tiobe-index/}{https://www.tiobe.com/tiobe-index/}.
+                TIOBE index is a measure of programming languages, created and maintained by company of the same name in Netherlands. \\
+                \midrule
+                1973 & First handheld cellular mobile phone invented. Start of a mobile network we know today. \\
+                \cmidrule(r){2-2}
+                     & First successful inter-network communications. Birth of the Internet as we know it today. \\ 
+                \midrule
+                1977 & Apple II computer is developed by Steve Wozniak and marketed by Steve Jobs. One of the first computers, intended for personal use. \\
+                \cmidrule(r){2-2}
+                     & Atari video game console released. One of the first game consoles in history\\
+                \midrule
+                1978 & First Multi-User Domain games appeared. They allowed for multiple players play against each other. One of the first multiplayer competitive game experinces.\\
+                \cmidrule(r){2-2}
+                     & First Computer Worm created.\\
+                \midrule
+                1983 & Internet officially launched \\
+                \cmidrule(r){2-2}
+                     & Microsoft Word officially launched \\
+                \midrule
+                1985 & C\texttt{++} released \\
+                \midrule
+                1987 & Basic parameters for GSM standard agreed. GSM is the main standard used in mobile network today. \\
+                \cmidrule(r){2-2}
+                     & Perl developed\\
+                \midrule
+                1990 & First commercially succesful Windows OS version released, Windows 3.0 \\
+                \cmidrule(r){2-2}
+                     & Photoshop initially released \\
+                \midrule
+                1991 & Linus Torvalds released Linux kernel \\
+                \cmidrule(r){2-2}
+                     & Charles Babbage's Difference Engine \#2 is constructed at London Museum. \\
+                \midrule
+                1993 & First online ads appeared \\
+                \midrule
+                1995 & Java 1.0 introduced \\
+                \cmidrule(r){2-2}
+                     & Javascript released \\
+                \midrule
+                1999 & WiFi routers started to gain popularity for in-home usage. \\
+                \midrule
+                2000 & First mobile phone with camera released \\
+                \cmidrule(r){2-2}
+                     & USB flash drives first apperaed on the market. \\
+                \cmidrule(r){2-2}
+                     & Y2K problem. `Y2K' refers to potential computer errors related to the formatting and storage of calendar data. Not every program validly operated 
+                        with dates and there were many speculations about how this would affect computers.\\
+                \midrule
+                2004 & World of Warcraft comes on-line \\
+                \cmidrule(r){2-2}
+                     & Google's IPO\\
+                
+                \bottomrule
+                
+                \caption{Some of significant occasions in computer history}
+            \end{longtable}
 
+            So, as we can see from this timeline, we came a long way since Pascal's first calculator and Ada's first program to what we have today. Although knowing of computer's
+            history won't give us much insight to programming, this history's influence is way more massive, than one usually imagines.  
 
             \newpage
         \subsection{But can it speak?}
