@@ -1,4 +1,4 @@
-\documentclass{article}
+\documentclass{report}
 
 \usepackage{amsmath}
 \usepackage{longtable}
@@ -7,6 +7,7 @@
 \usepackage{wrapfig}
 \usepackage{caption}
 \usepackage{booktabs}
+\usepackage{bookmark}
 \usepackage{tablefootnote}
 \usepackage[group-separator={,}]{siunitx}
 
@@ -42,35 +43,32 @@
 %Document
 \begin{document}
     \maketitle
-    \begin{abstract}
-        This essay is intended to answer (very briefly) to a question: \emph{What is programming?}
-        Although computer programs nowadays are pretty ubiquitous in nature, they remain being \emph{black boxes of magic}
-        for most people, even tech-savvy ones. \par
-        
-        However, being a \emph{black box of magic} to some extent is a requirement for some commercial software (especially when there are trade secrets involved) 
-        natural. But this essay is not intended to answer how every software works in details, but \emph{how every software works, in general}. \par
 
-        \textbf{
-            DISCLAIMER: This is a preliminary DRAFT. If you've found some errors, or somehow interested in this work,
-            please write to \href{mailto:anuarkaliyev23@gmail.com}{anuarkaliyev23@gmail.com}
-            }
-    \end{abstract}
+    This essay is intended to answer (very briefly) to a question: \emph{What is programming?}
+    Although computer programs nowadays are pretty ubiquitous in nature, they remain being \emph{black boxes of magic}
+    for most people, even tech-savvy ones. \par
+    
+    However, being a \emph{black box of magic} to some extent is a requirement for some commercial software (especially when there are trade secrets involved) 
+    natural. But this essay is not intended to answer how every software works in details, but \emph{how every software works, in general}. \par
+
+    \textbf{DISCLAIMER: This is a preliminary DRAFT. If you've found some errors, or somehow interested in this work,
+        please write to \href{mailto:anuarkaliyev23@gmail.com}{anuarkaliyev23@gmail.com}}
+
     \newpage
 
     \tableofcontents
-    \newpage
 
-    \section{Introduction}
+    \chapter{Introduction}
 
         Basically, \emph{everything} you do on a computer is running some program. Everything, no matter what you do is a result of executing and working with
-        some program. Your OS\footnote{Operation System - Windows, Linux-based, MacOS, Android, iOS etc.} \emph{is a program}. Your internet browser is a program. 
+        some program. Your OS\footnote{Operation System --- Windows, Linux-based, MacOS, Android, iOS etc.} \emph{is a program}. Your internet browser is a program. 
         Your media player, file explorer, video game, media editing software, office software \emph{are programs}. 
         \emph{Everything that allows you to interact\footnote{Interaction with a computer here and on will not take physical interaction with a bare metal in account} 
-        with computer (and not just bare metal) is a program.}
+        with computer (and not just bare metal) is a program.} \par
         
         So, essentially, \emph{what is a program?}. According to Merriam-Webster\footnote{Here and on Merriam-Webster dictionary is referred to as a `general-scope' dictionary to avoid technical details redundant for this essay} 
         definition\footnote{\href{https://www.merriam-webster.com/dictionary/program}{https://www.merriam-webster.com/dictionary/program}} 
-        (applicable for us), we can use following as a definition:
+        (applicable for us), we can use following as a definition: \par
         
         \begin{quote}
             program is a sequence of coded instructions that can be inserted into a mechanism (such as a computer)
@@ -78,13 +76,13 @@
 
         The gist of it being --- \emph{sequense of instructions}. So every interaction we can possibly have with a computer is somehow just a set of instructions. But \emph{how computers
         do understand out instructions}? If I just shout into the microphone some command, computer will not just do as I say\footnote{Provided, there is no running program, responsible for such behavior}.
-        The same effect will have some instruction that I carefully write them in some text document, using Microsoft Word, for example.
-        \\ 
-        How do I make computer to understand what I want from it? To understand this, \emph{we must first understand what is a computer}.
+        The same effect will have some instruction that I carefully write them in some text document, using Microsoft Word, for example. \par
+        How do I make computer to understand what I want from it? To understand this, \emph{we must first understand what is a computer}. \par
         \newpage
-    \section{What is Computer?}
 
-        \subsection{It's all about information}
+    \chapter{What is Computer?}
+
+        \section{It's all about information}
             Let's once again refer to Merriam-Webster dictionary for a \emph{computer} definition\footnote{\href{https://www.merriam-webster.com/dictionary/computer}{https://www.merriam-webster.com/dictionary/computer}}:
 
             \begin{quote}
@@ -253,7 +251,7 @@
             Some professions can put you in physical danger, if you're not cautious enough}.\par
 
             \newpage
-        \subsection{You can't manage what you can't measure}
+        \section{You can't manage what you can't measure}
             Once we have gotten ourselves these neat definitions about data and information, we will not benefit from them until we resolve one fundamental issue:
             \emph{How do we measure information?} How can we possibly find an adequate solution to count something so abstract in nature. \par 
 
@@ -405,7 +403,7 @@
             be simple bits sequences. Number of bits in these sequences will be equal to 4, since $2^4 \geq 12$\\
             Let's come up with a system of codes for T-Shirts:
 
-            \begin{table}[h]
+            \begin{table}[H]
                 \centering
                 \begin{longtable}{cc}
                     \toprule
@@ -435,7 +433,8 @@
             \end{quote}
 
             \newpage
-        \subsection{Standartisation, Specification, Simplification}
+        \section{Standartisation = Simplification}
+            \subsection{Scalability}
             So, we now know, how to use \emph{Hartley function} to speculate about information's size. This is not, by any means, the only one method we can use to 
             calculate information's size. However, It's pretty simple and kinda feels `natural' to use. \emph{Hartley function} gives us pretty good results when we are talking
             about somewhat randomly distributed options. Like in a case with a drawer and T-Shirts, I stated, that T-Shirt on top is random in nature. There is no 
@@ -477,6 +476,8 @@
             \emph{one} giant computer for the whole university to use. By nowadays standards, they couldn't be called even remotely of good performance. IPhone 12 Max Pro, for instance
             has up to \emph{16 billion times} more disk space, \emph{1.5 million times} more RAM, while being almost \emph{159 times} lighter than 
             \emph{Appolo 11\footnote{This program succesfully landed on the Moon} Guidance Computer}. \par
+
+            \subsection{Nomenclature and text encodings}
 
             So, back in a day, when computers were ineffecient, programs \emph{had to} be effecient to somehow compensate for hardware limitations. For this reasons, then it 
             made more sense to `invent a wheel' of sorts due to ineffeciency. It was easier to create some `custom-built' encoding, that works well for some particular type
@@ -523,6 +524,8 @@
                     \caption{Nomenclature of bit capacity}
                 \end{longtable}
             \end{table}
+
+            \subsection{Perception differencese}
 
             Since we know, that space being occupied on computers directly tied to a total number of variants, we can now embrace some weird things, we can encounter
             in programming. For instance, consider following examples
@@ -653,7 +656,7 @@
             so nicely into sum of $2^{-x}$. \emph{We cannot store $3.03_{10}$, for example, this way without some sort of rounding}. It may give insight into why computers
             sometimes act weird on calculations (computers have trouble computing, isn't it nice?). \par
 
-            \dotfill
+            \subsection{Did I waste your time?}
             
             However, the main point of this section is not just to give you info on how to transform different numbers in different bases. It's so basic and fundamental
             operation that there is practically no way that you won't find an instrument to do this. In thousands of systems and programming languages, most of the time,
@@ -683,7 +686,9 @@
             keeping in mind many intricate details. However, \emph{with every generation of technology, we tend to explain to computers less `How' and more `What'}.
 
             \newpage
-        \subsection{Countess, weaving patterns and count machines}
+        \section{Countess, weaving patterns and count machines}
+
+            \subsection{Ancient calculators}
 
             So, essentially, what is a computer? And yes, there is a definition from Merriam-Webster dictionary in the first pages. \emph{But what does computer do, in its essence?}.
             Well, it \emph{computes}, duh. \emph{So, the computer is a buffed-up calculator? Well, it is an oversimplification, but not really untrue}. If a five-year old asked me
@@ -717,42 +722,49 @@
                     \end{longtable}
             \end{table}
 
-            \newpage                
+            \newpage
+
+
+            However, those are purely mechanical and manual devices, main principle of which is very similar to how we convert numbers to different bases. They still
+            require us to `translate' our numbers to abacus system and, after we've done our math, translate them back. \par
+            
+            
             \begin{wrapfigure}{lh}{0.3\textwidth}
                 \centering
                 \includegraphics[scale=0.1]{images/persons/person_blaise_pascal.jpg}
                 \caption{Blaise Pascal}
             \end{wrapfigure}
 
-            However, those are purely mechanical and manual devices, main principle of which is very similar to how we convert numbers to different bases. They still
-            require us to `translate' our numbers to abacus system and, after we've done our math, translate them back. \par
-            
             The first succesful automation attempt is attributed to Blaise Pascal, with his \emph{Arithmetic Machine} which is also called a \emph{Pascaline}.
             It was designed and built between 1642 and 1644\footnote{\href{https://www.britannica.com/technology/Pascaline}{https://www.britannica.com/technology/Pascaline}}. 
             Pascaline could only add and subtract numbers, using rotational dials as an input.\par
 
-            \begin{wrapfigure}{r}{0.5\textwidth}
-                \centering
-                \includegraphics[scale=0.3]{images/devices/device_pascaline_scheme.jpg}
-                \caption{Top view and overview of the mechanism}
-            \end{wrapfigure}
+
+            % \begin{wrapfigure}{r}{0.5\textwidth}
+            %     \centering
+            %     \includegraphics[scale=0.3]{images/devices/device_pascaline_scheme.jpg}
+            %     \caption{Top view and overview of the mechanism}
+            % \end{wrapfigure}
 
             There are several pascalines still intact nowadays, most of the remaining ones are in european museums. Being the first calculator isn't the only achievement
             of pascaline. Pascal was only 18 years old, when he started designing his machine, trying to help his father with accounting. He went through about 50 prototypes
             before settled on the final one. Later Pascal presented his machine to the public, and, eventually, to the King of France, receiving a royal privilege, which 
             was basically a patent in those days. And yes --- his father did use it in work afterwards \par
 
-            \begin{wrapfigure}{l}{0.3\textwidth}
-                \centering
-                \includegraphics[scale=0.2]{images/persons/person_joseph_jacquard.jpg}
-                \caption{Joseph Marie Jacquard}
-            \end{wrapfigure}
 
             Pascaline wasn't a computer, but it was first in many ways --- first calculator, which was afterwards commercialized, used in business and patented. Many of 
             subsequent attemps to farther automate calculations were directly inspired by Pascaline. \par
 
-            Next machine I want to discuss is not a computer either. It isn't even a calculator --- it's a loom. I cannot say much about weaving history, 
-            but in computer history, it was indeed the most significant loom there is. In 1804 a french weaver and merchant, Joseph Marie Jacquard invented a \emph{Jacquard Machine}.
+            \subsection{Luddites' nightmare}
+
+            \begin{wrapfigure}{r}{0.3\textwidth}
+                \centering
+                \includegraphics[scale=0.2]{images/persons/person_joseph_jacquard.jpg}
+                \caption{Joseph Marie Jacquard}
+            \end{wrapfigure}
+            
+            The next machine of our interest is not a computer either. It isn't even a calculator --- it's a loom. I cannot say much about weaving history, 
+            but in computer history, it was indeed the most significant loom there is. In 1804 a french weaver and merchant, Joseph Marie Jacquard invented a \emph{Jacquard Machine}. \par
 
             Beginning of the 19\textsuperscript{th} century is pretty much a middle of industrial revolution. New fancy industrial looms are practically a 
             symbol of the new era. Industrial revolution changed our world forever, marking a \emph{transition from hand production methods to machines}.
@@ -769,14 +781,7 @@
             Inventors tried to find a way to increase production effeciency (and therefore revenue) by exploring technical capabilities of the machines they worked with. So 
             Joseph Jacquard invented his machine, which was basically an \emph{attachment to the industrial loom}. A loom with an attached machine was subsequently called
             \emph{Jacquard Loom}\footnote{Jacquard Loom is a general term, which does not describe any concrete loom, but rather any loom with the control 
-            mechanism, allowing pattern weaving automation}.
-
-
-            \begin{wrapfigure}{l}{0.5\textwidth}
-                \centering
-                \includegraphics[scale=0.25]{images/misc/luddites.jpg}
-                \caption{1844's depiction of Luddites destroying the loom}
-            \end{wrapfigure}
+            mechanism, allowing pattern weaving automation}. \par
 
             The main purpose of Jacquard's attachment was an \emph{pattern weaving automation}. It used a chain of special cards laced together in a continuous, looped sequence.
             Those cards will later be called \emph{punch cards}. Punch card is, essentially a card, with designated spaces for holes. Later, some designated space would be `punched'
@@ -785,6 +790,12 @@
             If there was no hole in the area, rod will move since card will push it. If there was a hole, rod wouldn't move since it would go through hole. \par
 
 
+            \begin{wrapfigure}{l}{0.5\textwidth}
+                \centering
+                \includegraphics[scale=0.2]{images/misc/luddites.jpg}
+                \caption{1844's depiction of Luddites destroying the loom}
+            \end{wrapfigure}
+
             This machine would \emph{drastically} impact effeciency, since it was no longer required to be of high skill to weave complicate patterns. It, essentially, gave
             manufacturers ability to \emph{store design patterns and to reproduce them indefinitely}\footnote{At least until punch cards are in fine condition}. The man behind
             the punching process still needed to be trained and qualified, but to just reproduce a readily punched design wasn't much of an issue even to a low-skill worker.
@@ -792,6 +803,7 @@
             of English textile workers. However, over time it has come to mean one opposed to new technologies in general}
             destroyed such machines to protest against their usage. \par
             
+            \subsection{Steam, calculators and British Government}
             \begin{wrapfigure}{l}{0.3\textwidth}
                 \centering
                 \includegraphics[scale=0.2]{images/persons/person_charles_babbage.png}
@@ -872,7 +884,7 @@
             in many of the early computers of the 20\textsuperscript{th} century\footnote{\href{https://www.britannica.com/technology/Analytical-Engine}
             {https://www.britannica.com/technology/Analytical-Engine}}! \par
 
-
+            \subsection{Enchantress of Numbers and Italy's Prime-Minister}
 
             Using punch cards as a format of input data not only have fascinated Babbage, but Ada Byrone too. For the next ten years, after the aforementioned party, she
             did study almost daily, learning from Babbage all she could about the machine. In the meantime she married William King in 1835, thus making her Ada King. In 1838
@@ -890,20 +902,22 @@
             also \emph{extended it with her own thought and commentary}. So, it became `Sketch of the Analytical Engine invented by Charles Babbage with Notes by the Translator Augusta Ada King, Countess Lovelace'.
             Her resulting work was published in 1843 and \emph{3 times as long as the original paper}\footnote{\href{https://www.historyofinformation.com/detail.php?id=467}{https://www.historyofinformation.com/detail.php?id=467}}. \par
 
-            \begin{wrapfigure}{l}{0.3\textwidth}
-                \centering
-                \includegraphics[scale=0.2]{images/persons/person_ada_lovelace.jpg}
-                \caption{\\Augusta Ada King, \\ Countess of Lovelace}
-            \end{wrapfigure}
-
+  
             She also illustrated in her notes a sequential solution of various problems, through input in a form of punch cards into Analytical Engine. So, basically, she used 
             those punch cards the same way we are using keyboard and mouse to interact with the machine. Thus, making it the \emph{first ever documented and published program --- a 
             set of instructions for computer to follow}. So, meet the first programmer ever --- Countess Lovelace. \par
 
-            \begin{wrapfigure}{r}{0.5\textwidth}
+            % \begin{wrapfigure}{r}{0.5\textwidth}
+            %     \centering
+            %     \includegraphics[scale=0.15]{images/misc/ada_lovelace_bernoulli_numbers_program.jpg}
+            %     \caption{Program to calculate Bernoulli Numbers by Ada Lovelace}
+            % \end{wrapfigure}
+
+
+            \begin{wrapfigure}{l}{0.3\textwidth}
                 \centering
-                \includegraphics[scale=0.15]{images/misc/ada_lovelace_bernoulli_numbers_program.jpg}
-                \caption{Program to calculate Bernoulli Numbers by Ada Lovelace}
+                \includegraphics[scale=0.2]{images/persons/person_ada_lovelace.jpg}
+                \caption{\\Augusta Ada King, \\ Countess of Lovelace}
             \end{wrapfigure}
 
             Although there are some disputes regarding the title of the `first programmer ever'\footnote{Most sources still say it is Ada Lovelace}, there is one thing virtually
@@ -924,7 +938,8 @@
             Constructors tried to adjust for physical properties achievable in 19\textsuperscript{th} century. It was concluded, that machine would've worked\footnote{\href{https://en.wikipedia.org/wiki/Difference_engine}
             {https://en.wikipedia.org/wiki/Difference\_engine}}. \par
 
-            
+            \subsection{Brief timeline of the computer history}
+
             Computer history is filled with many significant occasions since 19\textsuperscript{th} century. As was said, it is indeed a vast topic, although we will 
             mention few\footnote{Most occasions here are sourced from \href{https://www.computerhistory.org/timeline/}{https://www.computerhistory.org/timeline/}}:
 
@@ -1028,6 +1043,8 @@
             So, although this table cannot possibly reflect all significant events in the computer history, it demontsrates nicely how immensely far we've gone from the
             Babbage's steam-powered machines and Pascal's mechanical calculators. \par
 
+            \subsection{History matters}
+
             I occasionally hear an argument about whether or not it is necessary to learn something as obscure as the history of computers and those weird looms and whatnot. The main
             reasoning of such argument being that it's not necessary to know history of programming to learn it. Although it might be true, nonetheless I don't only think it 
             wouldn't hurt too much to know it, I am sure that \emph{knowing such details could give a real insight to some technologies we use today}. Computer Science
@@ -1042,7 +1059,7 @@
             1991(!)\footnote{\href{https://www.icaew.com/technical/technology/blockchain-and-cryptoassets/blockchain-articles/what-is-blockchain/history}
             {https://www.icaew.com/technical/technology/blockchain-and-cryptoassets/blockchain-articles/what-is-blockchain/history}}, 18 years before the notorius use case example
             in the face of the Bitcoin emerged? 18 years --- is a considerate time-span, especially in IT. In IT terms, to study such an old documents is the equivalent of
-            Archaeological excavations study\footnote{Maybe a bit of exaggeration, but you get the idea}. First works on the decentralised digital currency are emerged in 1998. Just to
+            archaeological studies\footnote{Maybe a bit of exaggeration, but you get the idea}. First works on the decentralised digital currency are emerged in 1998. Just to
             put it differently: \emph{in the end of the last century}, which is crazy to hear, talking about IT and something that entered mainstream today. \par
 
             Or we can see another example of the technology dominant today, which roots are deeply in the past: Artificial Intelligence and Machine Learning. Face recognitions, self-driving cars, fraud detections.
@@ -1050,13 +1067,8 @@
             \href{https://www.cantorsparadise.com/the-birthplace-of-ai-9ab7d4e5fb00?gi=a4c19646195c}{https://www.cantorsparadise.com/the-birthplace-of-ai-9ab7d4e5fb00?gi=a4c19646195c}}, around 66(!) years ago 
             from the moment I am writing this essay. It doen't sound like a bleeding edge of a technology now, eh\footnote{AI and ML has undoubtedly came a long way since then. Still though.}? \par
 
-            
-
-
-            
-
             \newpage
-        \subsection{But can it speak?}
+        \section{Modern computers}
             \newpage
 
     
