@@ -8,7 +8,6 @@
 \usepackage{caption}
 \usepackage{booktabs}
 \usepackage{bookmark}
-\usepackage{tablefootnote}
 \usepackage[group-separator={,}]{siunitx}
 
 \usepackage{luatextra}
@@ -36,7 +35,10 @@
 }
 
 %Title section
-\title{What is programming?}
+\title{
+    What is programming? \\
+    \large (overly) Gentle introduction for complete laymen into computer world
+}
 \author{Khambar Dussaliyev}
 \date{\today}
 
@@ -433,7 +435,7 @@
             \end{quote}
 
             \newpage
-        \section{Standartisation = Simplification}
+        \section{Simplification through Standartisation}
             \subsection{Scalability}
             So, we now know, how to use \emph{Hartley function} to speculate about information's size. This is not, by any means, the only one method we can use to 
             calculate information's size. However, It's pretty simple and kinda feels `natural' to use. \emph{Hartley function} gives us pretty good results when we are talking
@@ -525,7 +527,7 @@
                 \end{longtable}
             \end{table}
 
-            \subsection{Perception differencese}
+            \subsection{Perception differences}
 
             Since we know, that space being occupied on computers directly tied to a total number of variants, we can now embrace some weird things, we can encounter
             in programming. For instance, consider following examples
@@ -1123,7 +1125,7 @@
                 \end{itemize}
                 \item Persistent Memory storage
                 \begin{itemize}
-                    \item Acts as a `primary' memory storage. Similar to a vault in the bank --- it's not convenient to get your hand in it every time you need something, it's
+                    \item Acts as a `long-term' memory storage. Similar to a vault in the bank --- it's not convenient to get your hand in it every time you need something, it's
                     rather a long operation to fill all necessary forms, go to the vault, find what you need etc. But it provides a secure storage for all of the things you
                     wish not to lose. Photos, videos, files etc. 
                 \end{itemize}
@@ -1142,9 +1144,25 @@
             The list of possible hardware some computer may utilize in some form is just enormous. It makes no sense to try and describe all possible parts there is.
             However, the list above is pretty comprehensive in a sense of a bare minimum for computer to function and for user to be able to interact with it. \par
             
+            \begin{quote}
+                It's worth noting, that each and every one piece of hardware described here is a complex technological device. To understand in details how works even
+                one of those components --- means to research a lot of specialized literature and be capable to comprehend a lot of engineering disciplines such 
+                electrical engineering and digital circuit design. This essay is intended only to introduce general functional capabilities of those devices, without
+                dwelling too much into details, that a layman would find hard to understand.
+            \end{quote}
 
             \subsection{CPU}
             
+            As was said before --- CPU is a `brain' of the computer. In the end, all operations, that somehow process any data is executed on CPU level. CPU is able to
+            execute instructions, written in \emph{machine code}, presented in a \emph{binary}\footnote{Presented in $base_2$} format. Such instructions can manipulate
+            memory addresses (to allocate some space in memory, or load something from it), perform arithmetic and comparative operations on 
+            operands\footnote{\emph{Operand} is an object of some \emph{operation}. e.g. in `5 + 2', `+' --- is an operation, `5' and `2' --- operands}(usually with one or two operands).
+            perform logic operations\footnote{Special operations such as `AND', `OR', `XOR' and others. They are subject of the discipline called `Boolean Algebra'.}, control
+            flow instructions (changing order of how program is executed) and other fundamental operations. \par
+
+            So... that's it? To learn programming --- means simply to learn those machine code instructions and find some way to shove it into CPU for it to execute?
+            Well... yes and no.
+
             \subsection{Memory}
             \subsection{GPU}
             \subsection{Motherboard and PSU}
