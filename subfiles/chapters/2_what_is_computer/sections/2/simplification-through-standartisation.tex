@@ -1,0 +1,254 @@
+\documentclass[../../what-is-computer.tex]{subfiles}
+\begin{document}
+    \subsection{Scalability}
+    So, we now know, how to use \emph{Hartley function} to speculate about information's size. This is not, by any means, the only one method we can use to 
+    calculate information's size. However, It's pretty simple and kinda feels `natural' to use. \emph{Hartley function} gives us pretty good results when we are talking
+    about somewhat randomly distributed options. Like in a case with a drawer and T-Shirts, I stated, that T-Shirt on top is random in nature. There is no 
+    hidden mechanism or consistent pattern we can observe, that can `hint' us about which T-Shirt will be on top\footnote{Example of such pattern could
+    be scenario in which I always see red T-Shirt on top, if on   the previous opening I've seen on top the yellow one.}. There are more applicable information 
+    measurements for the cases, when options are not evenly distributed. Also, there are numerous ways to `shrink' space allocated for data. Researches focused
+    on data compression algorithms are very important and it's hard to imagine some segment of IT, where this topic wouldn't be fundamental. But nonetheless, 
+    one way or another, understanding even something as simple as Hartley function and bit structures gives us major insight into how computers work and `think'. \par
+
+    But do we really need to calculate how many bits of data will it occupy to do something and create own encodings for everything all the time? Well\ldots{} --- it depends. 
+    It's a rare occasion to create our own encodings, as we did in the T-Shirts example. Imagine a world, where everybody creates his own encoding for all 
+    sorts of things only to solve a very narrow set of problems. Imagine everybody, from all over the world, to create own encodings for something as basic
+    as date and time\footnote{Like we haven't enough problems with them already!}, text, all sorts of media, satellite signal processing, network communication and all
+    sorts of other things --- it would be a nightmare! Not only it's unreasonably hard and requires an immense quantity of man-years, but all that everybody would 
+    come up with will always be kind of bad quality. Encodings created to differentiate colors of T-Shirts won't be adequate to differentiate colors of pixels on 
+    the screen. Encodings, created for date and time will suffer lacking of different calendars and timezones, if at all support any. We couldn't pass a video to 
+    friend without passing special program developed for this particular video along with it. It will be simply unsustainable. \par
+
+    This caveat, regardless of the activity type, is solved by pretty much the only practical way possible --- standartisation. Standartisation 
+    is \emph{absolutely necessary} when you want something to be scalable at all. For example, in the early 19\textsuperscript{th} there wasn't standartised time 
+    in North America. It was simply not necessary, every little town had it's own clocks, that were adequate for people's needs. However, it would make some 
+    scheduling \emph{between two towns} almost impossible. However, there wasn't much activities that would involve a simultaneous action between two towns. 
+    Travelling between them would take days, so why would people even bother with checking which hour it is in another town? It all have changed, once the trains
+    and railroads came into place. \emph{Now it was actually important}. Transport companies had to organize trains somehow and create predictable schedules for all
+    passengers and cargo to be transported and it \emph{required} some standartised measure of time. Now we can have some video-conference meeting from several points 
+    all across the globe without any issues, since the time itself is standartised. All different calendars have predictable and standartised conversion operations and
+    it's no problem to know what's time is it anywhere on the globe, in any standard calendar you like. We even have time standards for marking extraterrestrial observations. 
+    Our governments almost always impose some regulations on food, medical supplies, electrical devices, architecture and all sorts of any other things we can consume, 
+    produce and sell in our countries.\par
+
+    Most of the products and services in IT segment are way more scalable than fields requiring physical manipulation and processes. You can download a range of
+    commercial and non-commercial products all over the world, provided you have a computer with stable internet connection. Once some method of data compression 
+    was discovered in North America, for example, there is not much stopping for any company in the world to use it\footnote{In this paragraph, we suppose, that 
+    there is no special hardware or legal obligations involved}. Once new technology emerged, almost anywhere, anyone with adequate skills and knowledge can use it.
+    It is the result of scalability, provided by standartisation. Not only that, but this environment creates a positive feedback loop, encouraging us to 
+    improve and evolve our standards, giving us even more scalability.\par
+
+    It wasn't always like this, though. Not so long ago, computers weren't as widespread as they are today. Back in a day, only some prestigious universities could have
+    \emph{one} giant computer for the whole university to use. By nowadays standards, they couldn't be called even remotely of good performance. IPhone 12 Max Pro, for instance
+    has up to \emph{16 billion times} more disk space, \emph{1.5 million times} more RAM, while being almost \emph{159 times} lighter than 
+    \emph{Appolo 11\footnote{This program succesfully landed on the Moon} Guidance Computer}. \par
+
+    \subsection{Nomenclature and text encodings}
+
+    So, back in a day, when computers were ineffecient, programs \emph{had to} be effecient to somehow compensate for hardware limitations. For this reasons, then it 
+    made more sense to `invent a wheel' of sorts due to ineffeciency. It was easier to create some `custom-built' encoding, that works well for some particular type
+    of computer (sometimes even one specific computer), than to effeciently use some universal encoding of sorts. It was simply not feasible to create, for example,
+    a text encoding where virtually all languages would be supported. But nonetheless, there was some standartisation, that eventually became widespread enough to 
+    become a basis for everything else. \par
+
+    Text encodings are one of the most fundamental standards there is in programming world. One of the first \emph{text encodings} that became popular and \emph{still widely
+    used today} is ASCII\footnote{IANA prefers to call it `US-ASCII'}. Originally, it used 7 bits of information per symbol, producing $2^7 = 128$ possible 
+    variants for encoding characters. This provides us with 26 uppercase\footnote{Capital letters} letters, 26 lowercase\footnote{Small letters} letters, 10 digits, some punctuation
+    and additional symbols\footnote{such as `\%', `\&', `+', `-', `!', different types of quotes and parenthesis}, and a bunch of control characters, which not always make sense to human,
+    but are handy for the computers\footnote{For example: whitespaces, backspaces, tabulations, new line sequences, page breaks, etc. They can also represent some communication metadata.}.
+    Since computers are built almost entirely on bits, it encourages engineers make things $2^x$ based, to use provided space more effeciently. So, after some time, ASCII
+    began to require 8 bits\footnote{Since $8 = 2^3$} to encode single character. It was one of the major reason for currently used size nomenclature to 
+    emerge\footnote{\href{https://stackoverflow.com/questions/42842662/why-is-1-byte-equal-to-8-bits}{https://stackoverflow.com/questions/42842662/why-is-1-byte-equal-to-8-bits}}.
+    Sequence of 8 bits started being adressed as a \emph{byte}. There were some computers, that weren't following `8 bit = 1 byte' structure, but 8-bit based
+    computers became more popular, eventually. Although there were some historical `debate' as how many bits a byte should consist of, nowadays 
+
+    \begin{quote}
+        \begin{center}
+            1 Byte = 8 bits                                    
+        \end{center}
+    \end{quote}
+
+    Eventually a nomenclature was formed: 
+
+
+    \begin{table}[h]
+        \centering
+        \begin{longtable}{ccc}
+            \toprule
+            Name & Denotion & Size \\
+            \toprule
+            Byte & B & 8 Bits \\
+            Kilobyte & KB & $2^{10}$B \\
+            Megabye & MB & $2^{20}$B = 1024 KB \\
+            Gigabyte & GB & $2^{30}$B = 1024 MB \\
+            Terabyte & TB & $2^{40}$B = 1024 GB \\
+            Petabyte & PB & $2^{50}$B = 1024 TB \\
+            Exabyte & EB & $2^{60}$B = 1024 TB \\
+            Zettabyte & ZB & $2^{70}$B = 1024 EB \\
+            Yottabyte & YB & $2^{80}$B = 1024 ZB \\
+            \bottomrule
+            \caption{Nomenclature of bit capacity}
+        \end{longtable}
+    \end{table}
+
+    \subsection{Perception differences}
+
+    Since we know, that space being occupied on computers directly tied to a total number of variants, we can now embrace some weird things, we can encounter
+    in programming. For instance, consider following examples
+
+    \begin{itemize}
+        \item 9 + 13 = 22
+        \item Cats are believed to have 9 lives
+        \item It just so happens, I have an extra 9.5\$
+        \item 9.8 + 0.2 = 10
+    \end{itemize}
+
+    In each of these cases, we can encounter `9' in some form. If we consider all previous examples to be an ASCII text, we can roughly estimate data it would take up in 
+    a computer. We just need to count all symbols (including whitespaces!) and multiply it by 8. We know the encoding, we know a discrete number of variants we can
+    come up with for a single characters. \emph{But what if it is not a text?}. What if we need `9' \emph{as a number, not text symbol}? There is no finite total count
+    of all the numbers, they are infinite! And even more so, they are infinite both in ascending and descending orders! What should we do? \par
+
+    Examples like these show this difference, between a human mind and a way of how computers work. See, we are somewhat capable to construct our thesises and thoughts
+    based on some \emph{abstractions}. We made up a bunch of abstractions to make our life easier in some way or another. We can operate on abstractions, we are not required
+    to have a complete and unambigious definitions on everything\footnote{We do tend to unambiguity in many cases, though. Especially in science.}. We can interpret `9' in various
+    different ways not having to comprehend an enormous work of our brain behind it. For better, or worse, \emph{computers work in fundamentally different way}.
+
+    For computers to compute (pun intended) we must firstly to \emph{make up a finite set of possible variants}. This is usually done by creating several different
+    `types' of numbers\footnote{Programming Language types is a vast and fundamental topic, and not limited just to numbers.}. Most of the times we just allocating 
+    different number of bytes to numbers, inherently making these numbers elements of the finite set. Generic example of this can be seen as:
+
+    \begin{table}[H]
+        \centering
+        \begin{longtable}{|c|c|c|}
+            \hline
+            Name of the type & Size & Possible values \\\hline
+            Pretty-Small-Number & 1 Byte & $x \in [0..2^8 - 1]$ \\\hline
+            Not-So-Small-Number & 2 Bytes & $x \in [0..2^{16} - 1]$\\\hline
+            Generic-Number & 4 bytes & $x \in [0..2^{32} - 1]$\\\hline
+            Pretty-Big-Number & 8 bytes & $x \in [0..2^{64} - 1]$\\\hline
+            Very-Very-Big-Number & 16 bytes & $x \in [0..2^{128} - 1]$\\\hline
+            \caption{Example number type sizes}
+
+        \end{longtable}
+    \end{table}
+
+    But wait --- we cannot create negative numbers in this example! Should we use structure just like this for negative numbers also? We can, but it's not really convenient.
+    However, we can reserve one our bits for the sign! Thus, we will not change total number of variants these bits provide us, but will change encoding for each number, subsequently
+    `shifting' our set of possible values:
+
+    \begin{table}[H]
+        \centering
+        \begin{longtable}{|c|c|c|}
+            \hline
+            Name of the type & Size & Possible values \\\hline
+            Pretty-Small-Number-With-Sign & 1 Byte & $x \in [-2^7..2^7 - 1]$ \\\hline
+            Not-So-Small-Number-With-Sign & 2 Bytes & $x \in [-2^{15}..2^{15} - 1]$\\\hline
+            Generic-Number-With-Sign & 4 bytes & $x \in [-2^{31}..2^{31} - 1]$\\\hline
+            Pretty-Big-Number-With-Sign & 8 bytes & $x \in [-2^{63}..2^{63} - 1]$\\\hline
+            Very-Very-Big-Number-With-Sign & 16 bytes & $x \in [-2^{127}..2^{127} - 1]$\\\hline
+            \caption{Number types, supporting negative numbers}
+
+        \end{longtable}
+    \end{table}
+
+    It's all good and all, but these examples show only \emph{integer} numbers. What if we have some number like 9.23?
+    We cannot store it in any type of the aforementioned tables --- none of them support fractions. \par
+
+    We can make up a type, that works with \emph{fractions}\footnote{There are a number of ways to deal with fractions. 
+    Example, described here is subtype of fixed-point fractional numbers. This particular method of dealing with them was chosen due to being somewhat simple}. 
+    For example, let's create a type taking 2 bytes. In this case we can define, that 1\textsuperscript{st} byte will represent an integer part and a 2\textsuperscript{nd}
+    byte will represent a fractional part. We can use an interesting property of numbers to achieve our goal: You see, we can present any number as a sum of digits,
+    multiplied by it's \emph{$base$} in the power of digit's ordinal number. \par
+
+    Let's take a number, for example --- 1024. 
+
+    \begin{quote}
+        $1024 = 1 * 10^3 + 0 * 10^2 + 2 * 10^1 + 4 * 10^0$. Mind that, this method works not only for $base_{10}$ numbers, but for any $base_x$, you should only correct
+        multiplier for digits. This will also convert number from $base_x$ to $base_{10}$ in the process\\\\
+        e.g.\\
+        $110101011_2 = 1 * 2^8 + 1 * 2^7 + 0 * 2^6 + 1 * 2^5 + 0 * 2^4 + 1 * 2^3 + 0 * 2^2 + 1 * 2^1 + 1 * 2^0 = 427_{10}$ \\\\                    
+        $1054_8 = 1 * 8^3 + 0 * 8^2 + 5 * 8^1 + 4 * 8^0 = 556_{10}$\\\\
+        $1AC3_{16} = 1 * 16^3 + 10_{10} * 16^2 + 12_{10} * 16^1 + 3 * 16^0 = 6851_{10}$
+    \end{quote}
+
+    So, you might wonder: \emph{How can it help us with fractions}? And I can answer: we present fraction part as some power of $base_x$! Consider following
+    example:
+
+    \begin{quote}
+        \begin{equation*}
+            100.75_{10} = \begin{cases}
+                    01100100_2 \text{--- integer part}\\
+                    11000000_2 \text{--- fraction part}
+                \end{cases}
+            \end{equation*}
+
+            \emph{
+                Notice, we can trim all leading zeros in \emph{integer part} and all trailing zeros in the \emph{fraction part} without affecting a value.
+                We are showing those zeros here for formatting purposes and to explicitly show, that we allocated one byte for each part\footnote{It's not imperative,
+                we could allocate any number of bits/bytes we wanted}.
+            }
+    \end{quote}
+
+    We already know, how we got an \emph{integer part} of our number. But how on Earth did we calculate \emph{fraction part}?
+
+    \begin{quote}
+        To calculate a fraction part in binary, we should perform following operations:
+
+        \begin{enumerate}
+            \item Trim integer part from our number, \emph{we should use only fraction part}.
+            \item Multiply fraction part by 2. Store resulting \emph{integer part} somewhere.
+            \item Repeat\footnote{It is possible to be stuck in this loop forever, so you should cap maximum repeatition times (maximum number of digits after the dot).} steps 1--2, passing result from the second step to the first step.
+            \item List of \emph{integer} parts is your binary number.
+        \end{enumerate}
+
+        e.g.\\
+        \begin{longtable}{|c|c|c|c|}
+            \hline
+            Step \# & Number & Result & Result's integer part \\\hline
+            1 & 0.75 -> 0.75 & 0.75 * 2 = 1.5 & 1 \\\hline
+            2 & 1.5 -> 0.5 & 0.5 * 2 = 1.0 & 1 \\\hline                    
+        \end{longtable}
+
+        So, $11_2$ is our result for \emph{fraction part}.
+
+        We can, for clarification purposes, show our result as: $100.75_{10} = 1100100.11_2$. Our transformation method 
+        would still work\footnote{We could omit multiplications of zero, without affecting the value. They are shown for clarity}: \\
+
+        $100.75_{10} = 1 * 2^6 + 1 * 2^5 + 0 * 2^4 + 0 * 2^3 + 1 * 2^2 + 0 * 2^1 + 0 * 2^0 + 1 * 2^{-1} + 1 * 2^{-2}$ 
+    \end{quote}
+
+    That's how we can store fractional numbers, for example. Although, it might not usually be the only and exact case how it's done, but it gives us nice insight
+    into how we can use only binary integer number to store something not binary and not integer. We must also consider the fact, that not every number composes
+    so nicely into sum of $2^{-x}$. \emph{We cannot store $3.03_{10}$, for example, this way without some sort of rounding}. It may give insight into why computers
+    sometimes act weird on calculations (computers have trouble computing, isn't it nice?). \par
+
+    \subsection{Did I waste your time?}
+
+    However, the main point of this section is not just to give you info on how to transform different numbers in different bases. It's so basic and fundamental
+    operation that there is practically no way that you won't find an instrument to do this. In thousands of systems and programming languages, most of the time,
+    you wouldn't even bother with those operations. At most, you would just write something along the lines `Hey, transform this number to binary for me, will ya?'
+    \emph{So why did I wasted your time on this section?} Well, \emph{it is fundamental, nonetheless}. Practically everything is built on the principles that we 
+    talked about here. And the main idea of this section is not about some information transformation details --- it's that in general, \emph{any information
+    with one way or another will be transformed into binary form at some point}, if you are using a computer. I just thought it would be nice to give a couple of examples for
+    it not to sound magic-y of sorts \par
+
+    Main question of this section was: \emph{Do we really need to invent new encoding formats or some types of data?} And now, I want to believe, I can give an answer, that
+    can be understood, with the background consisting only of this section. \emph{Yes and no}. There wouldn't be any point in programming itself, if we wouldn't 
+    inventing something new with said program, would it? The main goal of programming is to \emph{teach your computer doing something new}. So, you will create 
+    something new, at least for your computer. But, doing so, \emph{it would be absolutely dreadful to re-invent everything}. So, you will use some standards and
+    wheels that were invented before you. It's only natural. If I wanted to, say, create a video-player, I would love to (I hope) create some player-specific functionality.
+    However, I wouldn't want to explain to my player what the number is. Or what is text. Or how to understand what time is it. \emph{I need to teach my player use it}, of course,
+    but \emph{it doesn't mean I need to re-invent it} for my player. \par
+
+    It's also interesting to observe, that nowadays programmers, in general, shouldn't bother with this stuff. I mean, they should know it, of course, but it's possible
+    to be able to program something and not to get into details of how this works. There are of course some fields, where doing these operations from scratch 
+    is a must\footnote{Somebody did write those instruments we all use, didn't he?} but it's not really that widespread anymore. Programming as a profession and as 
+    a science\footnote{Computer Science is a more correct term here} is somewhat new, of course. However, it's not as new as the most people think. I'd like to dwell
+    on this subject in the next section. All I wanted to say now, is that computers now are way-way more powerful than before. It allows us to automate many things, even
+    automation itself. Some time before \emph{every} programmer had to know \emph{exactly} how things like that worked on \emph{his exact computer}. There just 
+    weren't as many computers, as many instruments and performance capacity as today. Today, for better or worse, \emph{we have the luxury of not dwelling into much
+    detail like we did in this section}. It's like we are now the managers of computer, when we only say: `do that, take that, change those' and expect result, without
+    having to explain in great deal of detail \emph{how it must be done exactly}. It is a relative thing, of course. We still need to explain many things to computer,
+    keeping in mind many intricate details. However, \emph{with every generation of technology, we tend to explain to computers less `How' and more `What'}.
+
+\end{document}
