@@ -1,35 +1,164 @@
 \documentclass[../../why-computer.tex]{subfiles}
 \begin{document}
-    So, we discussed briefly what information is, short history of computers and what hardware is. But how does it all interact with each other to give us experience
-    we used to call normal computer work? \par
+	\subsection{What is software?}\label{subsection:what-is-software}
+        So, we discussed briefly what information is, short history of computers and what hardware is. But how does it all interact with each other to give us experience
+        we used to call normal computer work? \par
 
-    To put it simply --- hardware is the bare bones, blood system, muscles and joints of the computer. However, it's just laying there, doing nothing, \emph{until we tell it 
-    what to do}. Where does the impulse come from? How can we step up from all the components just assembled together to interactions between them, producing some
-    useful work for us? \emph{Well, we must program it}. \par
+        To put it simply --- hardware is the bare bones, blood system, muscles and joints of the computer. However, it's just laying there, doing nothing, \emph{until we tell it 
+        what to do}. Where does the impulse come from? How can we step up from all the components just assembled together to interactions between them, producing some
+        useful work for us? \emph{Well, we must program it}. \par
 
-    Let's say, that you want to view some photos, saved on your disk in your laptop. What actions are you gonna do to view those photos? I imagine something similar to
-    this: 
+        Let's say, that you want to view some photos, saved on your disk in your laptop. What actions are you gonna do to view those photos? I imagine something similar to
+        this: 
 
-    \begin{enumerate}
+        \begin{enumerate}
         \item Turn the power on
         \item Wait for display to show something
         \item See welcome screen, once your OS finished booting up
         \item Enter your password to log in
         \item Locate your photos somewhere on computer
         \item Click on it, for application to appear and show your image
-    \end{enumerate}
+        \end{enumerate}
 
-    \emph{Everything in this list, except for turning the power on relied on some software to work correctly}. It is software, that displaying things on your screen.
-    It is software searches for OS files to boot up computer, it is software transforming your keyboard typing to something computer can understand, it is software
-    waits for the correct password to be entered, it is software shows you neat folders and files for you to navigate, it is software starting application to show you
-    photos. There is a \emph{ton of software involved} in such a simple process, isn't it? \par
+        \emph{Everything in this list, except for turning the power on relied on some software to work correctly}. It is software, that displaying things on your screen.
+        It is software searches for OS files to boot up computer, it is software transforming your keyboard typing to something computer can understand, it is software
+        waits for the correct password to be entered, it is software shows you neat folders and files for you to navigate, it is software starting application to show you
+        photos. There is a \emph{ton of software involved} in such a simple process, isn't it? \par
 
-    We also must answer for a crucial question: `what is software?'. Well, it's instructions, telling the computer what to do\footnote{\href{https://www.britannica.com/technology/software}
-    {https://www.britannica.com/technology/software}}. Software is just a fancy term for computer programs. \par
 
-    So, how does one tell computer what to do? Well, mostly, it boils down to tell \emph{processor} what to do\footnote{I purposefully don't write `CPU' instead of processor 
-    here since some programs run on GPU processors}. As was discussed in `\nameref{section:modern-computers}' on page~\pageref{section:modern-computers}, processors are able 
-    to receive and implement instructions in \emph{machine code}. Machine code is always represented in binary format, meaning it's just `raw' zeros and ones. It's very
-    inconvenient for human to send something in binary format --- too cumbersome and error-prone. 
+
+        We also must answer for a crucial question: `what is software?'. Well, it's instructions, telling the computer what to do\footnote{\href{https://www.britannica.com/technology/software}
+        {https://www.britannica.com/technology/software}}. Software is just a fancy term for computer programs. \par
+
+        \subsection{Behold! An assembly language}\label{subsection:behold-assembly-language}
+
+        So, how does one tell computer what to do? Well, mostly, it boils down to tell \emph{processor} what to do\footnote{I purposefully don't write `CPU' instead of processor 
+        here since some programs run on GPU processors}. As was discussed in `\nameref{section:modern-computers}' on page~\pageref{section:modern-computers}, processors are able 
+        to receive and implement instructions in \emph{machine code}. Machine code is always represented in binary format, meaning it's just `raw' zeros and ones. It's very
+        inconvenient for human to send something in binary format --- too cumbersome and error-prone. \par
+
+        To overcome this nuisance, we must create a `translator' of sorts --- for us to write in some way, comfortable enough for human and to translate it into said machine code
+        which is so convenient for the machines. \emph{Thus, we firstly created a distinction with something conventient for humans and for the machines}. Anyhow, one of the first
+        such \emph{abstractions} over machine code is an \emph{assembly language}. Main purpose of assembly language is to translate \emph{as directly as possible} to machine code 
+        instructions of the processor. Instead of being raw binary --- it is actually a \emph{language}, in this context, meaning that it can be written as text. Just to illustrate
+        what it may look like, we can look at MS-DOS sources\footnote{\href{https://github.com/microsoft/MS-DOS}{https://github.com/microsoft/MS-DOS}}. Code presented above can be found in file `PRINT.ASM'\footnote{\href{https://github.com/microsoft/MS-DOS/blob/master/v2.0/source/PRINT.ASM}
+        {https://github.com/microsoft/MS-DOS/blob/master/v2.0/source/PRINT.ASM}} in MS-DOS repository. \par
+
+    \begin{verbatim}
+;Interrupt routines
+ASSUME  CS:DG,DS:NOTHING,ES:NOTHING,SS:NOTHING
+        IF      HARDINT
+HDSPINT:                        ;Hardware interrupt entry point
+        INC     [TICKCNT]       ;Tick
+        INC     [TICKSUB]       ;Tick
+        CMP     [SLICECNT],0
+        JZ      TIMENOW
+        DEC     [SLICECNT]      ;Count down
+        JMP     SHORT CHAININT  ;Not time yet
+TIMENOW:
+        CMP     [BUSY],0        ;See if interrupting ourself
+        JNZ     CHAININT
+        PUSH    DS
+        PUSH    SI
+        LDS     SI,[INDOS]      ;Check for making DOS calls
+        CMP     BYTE PTR [SI],0
+        POP     SI
+        POP     DS
+        JNZ     CHAININT        ;DOS is Buisy
+        INC     [BUSY]          ;Exclude furthur interrupts
+        MOV     [TICKCNT],0     ;Reset tick counter
+        MOV     [TICKSUB],0     ;Reset tick counter
+        STI                     ;Keep things rolling
+
+        IF      AINT
+        MOV     AL,EOI          ;Acknowledge interrupt
+        OUT     AKPORT,AL
+        ENDIF
+
+        CALL    DOINT
+        CLI
+        MOV     [SLICECNT],TIMESLICE    ;Either soft or hard int resets time slice
+        MOV     [BUSY],0        ;Done, let others in
+CHAININT:
+        JMP     [NEXTINT]       ;Chain to next clock routine
+        ENDIF
+
+
+SPINT:                          ;INT 28H entry point
+        IF      HARDINT
+        CMP     [BUSY],0
+        JNZ     NXTSP
+        INC     [BUSY]          ;Exclude hardware interrupt
+        INC     [SOFINT]        ;Indicate a software int in progress
+        ENDIF
+
+        STI                     ;Hardware interrupts ok on INT 28H entry
+        CALL    DOINT
+
+        IF      HARDINT
+        CLI
+        MOV     [SOFINT],0      ;Indicate INT done
+        MOV     [SLICECNT],TIMESLICE    ;Either soft or hard int resets time slice
+        MOV     [BUSY],0
+        ENDIF
+
+NXTSP:  JMP     [SPNEXT]        ;Chain to next INT 28
+
+DOINT:
+        PUSH    SI
+        MOV     SI,[CURRFIL]
+        INC     SI
+        INC     SI
+        CMP     BYTE PTR CS:[SI],-1
+        POP     SI
+        JNZ     GOAHEAD
+        JMP     SPRET           ;Nothing to do
+GOAHEAD:
+        PUSH    AX              ;Need a working register
+        MOV     [SSsave],SS
+        MOV     [SPsave],SP
+        MOV     AX,CS
+        CLI
+;Go to internal stack to prevent INT 24 overflowing system stack
+        MOV     SS,AX
+        MOV     SP,OFFSET DG:ISTACK
+        STI
+        PUSH    ES
+        PUSH    DS
+        PUSH    BX
+        PUSH    CX
+        PUSH    DX
+        PUSH    SI
+        PUSH    DI
+        PUSH    CS
+        POP     DS
+    \end{verbatim}
     
+        Don't worry if you don't understand a thing --- me neither\footnote{My apologies for assembly language teachers in university}. Main idea of this demonstration is to
+        show that `convenient for humans' is a bit of a stretch regarding design of the assembly language. It's just not the case for the overwhelming part of programmers 
+        worldwide, who can decipher those instructions \emph{a little} more than total laymen. How come? \par
+
+        Well, although to write in assembly language --- is the next level of coolness in my eyes, it just isn't necessary most of the times. Some time ago, indeed, all the
+        programmers had to write in some sort of assembly language to program anything, but those times \emph{mostly} far from now. Why? Well, have you seen an assembly language? It is 
+        scary first of all! But \emph{it is a matter of habit} --- anyone could learn it and get used to it. Hey, if it get things done, why not? But there is at least one
+        far more fundamental issue with assembly language: did you notice how I said `programmers had to write in \emph{some sort} of assembly language' a couple of sentences 
+        ago? It's not a figure of speech --- \emph{there are many kinds of assembly language}. \par
+
+        Since assembly \emph{languages} designed to be as close to the underlying machine code as possible, it's design depends heavily on said machine code. Well, who defines
+        machine code? \emph{Processor's vendor does}. Processors vary greatly in many ways and \emph{there is just no standard, that can unionize them all under 
+        some standardised machine code}. In a practical sense, it means that everything you write and test on your computer may just not be able to work on some other computer
+        if it uses different processor. Well, as we discussed in section `\nameref{section:simplification-through-standartisation}', no standartisaion = no scalability. \par
+        
+        \begin{quote}
+                Despite all of the issues discussed here, programmers still use `pure' assembly language sometimes. It is absolutely crucial if you work on something
+                that must use some hardware-specific features or you just must have total control over some hardware-specific behaviour.
+                It is also sometimes a matter of performance --- since assembly language is practically one step before machine code, program
+                written in it have the minimal amount of `intermediaries', which can potentially boost it's performance.
+        \end{quote}
+
+        \subsection{Lost in translation}\label{subsection:Lost-in-translation}
+
+        So, wouldn't it be nice if we did have some `portable' programs, which can work if not completely identically on different processors, but more or less so? Yes,
+        it would be awesome. And, luckily enough, we are not the first people on Earth with such wild dreams. This is a basic idea behind a \emph{compiler} concept.
+
 \end{document}
