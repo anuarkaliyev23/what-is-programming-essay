@@ -6,3 +6,5 @@
 *.synctex(busy)
 **/.DS_Store
 **/*.pdf
+
+!out/programming-introduction.pdf

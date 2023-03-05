@@ -12,6 +12,10 @@ It's aim also could roughly be seen as giving answers to questions like:
 
 So, it might be a bit too ambitious of an aim to strive for, but it's interesting enough, in my opinion, to try.
 
+## Where to read?
+
+Current PDF can be accessed and downloaded as file from [here](out/programming-introduction.pdf)
+
 ## What's inside?
 
 For now there is several chapters, which include:

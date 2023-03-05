@@ -19,3 +19,7 @@ run: build
 
 update-tlmgr:
 	sudo tlmgr update --self
+
+hooks:
+	chmod +x .hooks/pre-commit
+	git config core.hooksPath .hooks/
