@@ -1,0 +1,9 @@
+*.aux
+*.log
+*.out
+*.gz
+*.toc
+*.synctex(busy)
+**/.DS_Store
+**/*.pdf
+.git
